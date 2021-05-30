@@ -1,0 +1,1659 @@
+swagger: "2.0"
+
+info:
+    version: "1.0"
+
+    title: API-FACTURACION
+
+    description: Api Basada en LibreDTE!
+
+    contact:
+        email: marcos.pulgar.a@gmail.com
+
+        name: Marcos Pulgar Acevedo
+
+        url: https://github.com/sh00pdx
+
+host: localhost:8181
+
+basePath: /
+
+securityDefinitions:
+    token:
+        type: apiKey
+
+        description: Api Key
+
+        name: token
+
+        in: header
+
+schemes:
+    - https
+
+consumes:
+    - application/json
+
+produces:
+    - application/json
+
+paths:
+    /certificacion/boletas:
+        post:
+            summary: Set de pruebas boleta
+
+            tags:
+                - certificacion
+
+            operationId: Setdepruebasboleta
+
+            deprecated: false
+
+            produces:
+                - text/html; charset=UTF-8
+
+            consumes:
+                - application/x-www-form-urlencoded
+
+            parameters:
+                - name: set_pruebas
+
+                  in: formData
+
+                  required: true
+
+                  type: array
+
+                  items:
+                      type: string
+
+                  description: Json con detalle de los casos del set de prueba
+
+                - name: caratula
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: Json con datos de caratula
+
+                - name: emisor
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: Json con datos de emisor
+
+                - name: folioInicial
+
+                  in: formData
+
+                  required: true
+
+                  type: integer
+
+                  format: int32
+
+                  description: Folio con el que iniciaran las boletas del set de pruebas
+
+                - name: cert
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: certificado personal
+
+                - name: caf
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: archivo Caf
+
+                - name: password
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: password del certificado personal
+
+            responses:
+                "200":
+                    description: OK
+
+                    schema:
+                        type: string
+
+                    examples:
+                        text/html; charset=UTF-8: "PK\x03\x04\x14\0\x02\0\b\0I��Rrh�jp\x10\0\0e=\0\0\x0F\0\0\0EnvioBoleta.xml�;i��H���\x15F�G_]\x16\x17���D��,�(�	\x04D\x04AY�_�R-k��=s;��Dǫ��2\U000DC4D9gϓ'��?·�S\ay\x11e��'�\e��	R/�4��$���h4���\x7FL�1��QFk2g�\x0E\\�\x16ߟvey�\x15E���VD�7/A�(b���N�빈>\x105�oY\x1E�\x04���J�Mo\x17\x1C��(-J7�������\x06�3�-oL��\x19�w�����o��\x7F�(�\x04�t�fP�\x16ב��Or��\x038��\x15�y7<�`��-���q�\rmT%w��,��$N�\x04I>\x13c�\r��\x0E��N�\x11E�H�|��d7�;*#��c	W\x0E�\x11��0�yv#|�?hyog\x04E�L\b���1�\x19\e��W��Jͳ;\0\e���\a�:\x14%\x1F�\a\x17rq�\x06�{<�0��\x7Fű_��\x18�@�XfV\e+���\x01�nu̮�\x1E\x05�܇o8x�\x15@�8x�\x1A��v\x1A�\x0Fm�̯���h�:�!H��ݬ\x1Eœ��a8.��Mк~�z��å�q\x1D}f�ϒ(��\x1D�Zo�w(ow��;��T\x7F��QI�o\x06y\x1Dypmo����j�\x03K�Nsu���[��\n}G٦f潀���:f�-;�\x11@����%B�g/@�2��\x01�%-%\x16���a���1�&k�\x04�3\x19t$��\f\x050��v�+�䌥\x04��\x03eI�f��w;�\x1D�F��Ga�N�p�±���\f�S-�\x7F:�9���/\x04�}\x1F�o�o˙C�\0��zeI�(��>�xU����\x14\n<w�ޠ�������;�^�P�p̃������V?�C�� �M��\r��4���<\x7F&{����C��hq�ན)iy\x03N\bj�A7|��n�a\rTͧ�\x18�\x01�'���!G)�N�[ľL^ч�T\x06�	�\x1E6Q���\x05Q\x19@�\x17̃R//�9��1|��wGQԕ���V2\x18��	�\0/R|`�\x0FD �H\x04�Di��xL;���M��L����Wb�[R\x18�6��\r��B��\x0E\x11o��N\x1Eh&�S�����ǯ.�ٍ�\x01�^6\x0F\0�\U0002D3E7�-���d�>��>�Gζ�{�|��/)�1�>f��2��\x18y�\x03n\x1A���|�\x14�zus8�\x03%\v�\r_�B_.p�\x7F\x16k�\x02��7\x04��O,��:��[\x1Ds~͝&\x04��ql��d�ޅd'cq2�^��\x04�B\f2�����3~\x15�v�	��X�\f�i\x1CE�M��E�}%���'.k?ٌΫl\x18\x0F�m50�\x12�%!R��I� i��^\x18�(3#\x05w�\x16O�y]��\x14�h�Ô�L��\x04܆ܕ�ۉ�Xbg\x13����\0�\x1C_��a��I��QyȾ?�\"�����EO\x13e�r^�_+�B\"r�l�Q�ϚѴ\x1F�T]��\b;�\x03��W��Mf˪\x19$9Qo����O\x01�ds�U	q��!��u6J	K��u=��\x03���wL�t�Sy�P�-J�p���\\׺~\x0E3!p�~Wj��\x19���ڏ���EG�r�υ5\x16+�����ĭ���R%]*\x1E��՝�u��`ܕk\x1C�%�uW�Ӷy�ںr�`�$�\x17\x15\x134�k�\x02כQ���&\x0F~�<~�|1\x14�PH�\x17Q����*�t���2�M�4��$jo��\x12����v����2�1�p�g\x0F��W\b��\aO��M�\x7Fg��L��\\�\\���#�\x04��!}\x7F���\nnl�nZl��P�\e�܉AZ\aIv\f������p���,�\x1A�������҅Q:\x11���So�rԺ�}`fB��G�w�i�(߲�u�f�wJ�\x13\x06�|id`e���z[�%5�>�S!�g�|7�I���kl�L\x13F�nA��Ԇ_\r�2r\b���1���aπ�Ŕ%��!��8\x0F������\x1C�mA]V�ʄ�\n5\"츛e e{�ÑCaA���fMۍ�J\b\x03����S\x065\a�~��6	��k��\n�U���\f\x13j\x128��\x02��Ej�� +�\x11I	�%D]m~:vӬ%�\n    <5�3�&�c�����ܤ\x15'����*o��\n1�\x18\e��\x12%j�p*]�\x06�n�(�q��e+\x05�H�b/�(Kl}�Yo��\x14{�c�d��@�F�-jbVXga�Sc^�\x14>���'m�g��n\x068x\x01���6Q2�J�b��\aZ&�Q��}\x19�ә�\vg�{q/J-��w��uU���\fn�F��|ᵕ�Z�\x1AG^Med�PB\x11\x10͢\x1Dej/�z\x1CN�\x189W˅�P����\x01\a�-y��e��\x1A��U\x05䃋�N+` E�1��\x16{�:\x0E\x02?؝���j�j\fE��	\x0E)n�N��X\n        <c�*\x11ѐ�m�PŞWWH�a��Ю�)U�$����Җ��lRK\x17ٖ�i�\x19U/\f����T��� �N�$�hc\"���.p,o�e��ɐ���5G0�e�\x1F�C9l\f�G]��:�94\x1C�$�\x1A��B(�C\e��GfJʭ�u����W�z=�]\x14\x0F5���1Ka\x02�\0\x1D��b{Lo�ۛYз�j�Q�[��\x11\x13�e����\f&�$	��0�\\\bA#� �$5��\x1A8��\x1AVw��l-�jO\x05:'�:h\x8Dw\x16��������H�\x1A�ft�f{j�	��\x17����ڽ\f�\e��*4&\0|����ͅ17/�`.��n�\n            <bqKv�O�V���ŭ\x14zq#f�F[$˅ly���\x1A�������K,�CuI�B�1\x1EG|x\"\n                <m�fhv��b��>:\x04\x1Fozӝb�\r�8�R�g,M3\vn\x14�A�+�i���\x1EM#�\x01�\x13�,�Y�=�����d\x05�7n���Xӈ;OU���X@(�\e�\x05\x17ľ\x01�\x0F@{��!�%\n�\n                    <d��\x05o�\x18eI\x1C�\x18��tq����,\"�R\n���/�%g�\\�0���'��6=V��p�\e��8\x04��)�o\x04\x7F�E��.��c'\x05\"\x1F�zcq�Bswv\re�X�@m��fy�b� ʙi���HOA@2U�/��\x1E�W�>�\nm�\x03�1@\x1F�+�	gp\f\x13ܧXG~6�?�:���9֑�\r�ϱ��l�\x7F�u�g��s�#�`�\x1E\x0E\x03;�K��2\f�Æѡw\x1A�E\x03�\x01,�^�&�\n'��\x0Ei�ٰ\x1A�O\x03\v��Ӯ�\f\x03R�\a]b��B/<��␖\x04]�\x04hfaF�K�\x0E9\x0E8�\"�OEl\x1A\x198\x122k\x1C��\x17\"\b9[\x12v�/ҭ\x16�jOT��!�7DQ9DSozt����'*�'\x18\a�k\x04�)\x04\x04�\v�n$F�@0\x0Fi\x16\b\v��4\x06�\x18�C�\b\x04\x058:\x1D\x03a\x04$@7@��\x1D`\0�u�E^\x10\v J���\b�\v�\x03Hp��W/���H[Z\x12QE\x12G�w��A�:N����A���j\n                        <B�^3\x11C�촬d,�,�\b�81�\x05\x17\x1A�3��ia���q\x15���E�	�Q\x12�PY=��7\"x�\ac�\x0F�\x16�\0&\x11#хW���\x16��=�\x14����3߂�#���t�d���wΈ�zg��0�\x04�\x18�2���>���ڃVpl=ԉ%L������\x1A�@���\n��B\x1Ca�F�\x13z\x0E3M�\x1F\x12�괕x��	\x16>7F�<�4҂�+��nM���\x03�B@�*/i�gaʤi�b�vx��\x0EOF�QZ�\x18{\x14�p�j�|�H}�A�\x19z\n\x1AD��Ȅ�j�\x13p�0�{�\aiN\0�\x1A�M�WQ�y��t�S�S�\b�\x1Do�\bD������O)�s�*^2\x15\a��1Cv;m֝oC��j���B�4�Ɯډ�2rV���\v0\\Ibӿd�e�ʬa\x17�.�x8Jiȶ�bs%3\a;��1}a\x1F\x15u2H��S\0\x15�E\x14$ff�S\x1A��I�z��t��f\v��̋2B�����->�Z栭Hu\x14\x0F�-\a�5�m���\x05hW�\x01���2���\x12\x05�\x1FJ�ť͈B,~��wA.��	�Y5\x18J�v!Hް:���7h�;�\x1D�8�R�5�R%�A��(|nD����n�$!�9�H��Z��nj+�Z\r�e�\x05Ⱟ\\#*M9c\x13/\x04u����A�����\x15�e�j^t*\x0Fxm\x16v�\x04�\n�s\x15q��+\f��\\|+$���k\x17�ϴ�ɿ�uM~���Z�\x7F��5��Ov���1H���<\b��\x1A��\x1Ft��?l����_k�\x12�ن/�\x7F��k�C��\a\v~�{�\x7F�{�\x13���M�v����Y����2$��v0��#\x01[��?\a���J�\r>g\x0EE\x17\vL5\fy�\x1C��l]9�4m�A�\nO���2���_h��\x7F�vo�:&\f���\0�\x14�.k�Z�����\x7F�ݫ�6��\x12���T���;��ϑ\x15q\0�I!Z�5�y����Ѵ)�rt^	u�w��A\x0FF'd�n(�\x19��\x0E�E��\rA;�����(7C�~N^؅\fd����T��}n!�\e��@�\x06	\x01\r�Ge���0ے{��7�\x1C�+��\x06��~�8\0`����8oX�#2Y���\x1C\x14_��XA\x14\x0F\rG8�b����1�\f�A�c���l���E�5G�����\x12���\x10w��U+/�4,]\"�f\x19�gzk��4\e���>\v�U\e�\x12\r�^��d��\x1A��q�j1N<��\x7F(�[/�{��S �(��s�\0|�\x0F+]�%oC}�{�ڽ_�ޯv�W��������j�~�{�ڽ\x7Fa���e���M������}��o�b||5���`�O��S�e���\x03ѭ\b�\x1C��c���?�`<�-�)���鉔J ��T���f��.\bz���S\x7Fo�a��)\x7F�r�/�ђ�GV�E4}�q*\"n3u^�%{4k ��=\x7F�n�r.o��\x1AC%��,&^\x06��U/�F�b0�X�R՘���]A��xh�}F6�\nk,r��2�u���y��C?��\"+��˵�\x16��.�\x1E��H}�y��u��2Z����H#2�œ x���r��x�k%�U�f�.]�C����$\x19\x1E\x11\x14L�\x05a��Ʈ㺔�|���g&%�]��r@I+\"w\"u�o��f�\x1FqG!���\nN�1�\x11,Y'}��+�>\"I5\a��J�\x1E�_\x0FƯ\a�׃�����`�z0~=\x18�\x1E�_\x0Fƿ����_�'��\x02PK\x03\x04\x14\0\x02\0\b\0I��R���0�	\0\0�\x11\0\0\x10\0\0\0ConsumoFolio.xml�W�r�J\x16��\x15\x15~K��I\x13\x15�;�\x19� f�M\x05\x02\x04\b\x04\x12 ���NI��uG�[8|�\x1Cn��\x1C���u�\x17?��n��|~�\x7Fb\x0F?�2���L�\x1F$K\x7F��'�#��\x17䉩�洯��Ȫ�\a��l�\x1FҶ=�BѾ�\x7F6Y�3,P+��6~�\x03~���\v�'\x7FVu�\x12\x18��+U��4�\a�YٴA\x19^�j�_�ͩTa����og�����\x0E�~����k9/ȏ\x1FOl\x15��q�V_K���\a%��1ks�\x19]�\x1CU��늤���pjF�f�o\x02#plBb��)A�1\n�締0,\x13�A{*��<���<��>k���-�#�~x?��.\v^�95#g��\x11��n�7\x14\x1F�f�T�\vL\b{ĨGl�;�PZ]�\x1D�\x13�n\x7F\n!�Y�U�\x188\f�Hb�\x18��O8>+��;��|CYqxͰz�پ�o/�}��Y�\x0F��S\x18��\x7F��/|��~A����5��\x19f\x7F\x1D�G��P���`�/�7�Z�v�\x06�&�����f\x0FG�fQ�\\!�\n                            <_����|\x01�{�\x02�6+��+����O%=�\x7F���iV���\x11u�7,� \x10�b\x14\n\x01Q�%\x7F=�ܾ�#��V\x7F��?��\v����[\x13\\뻲T�۴�~�\"��M�\x7F\x17�6�\x01M�y��>���|�z0\x12�<�/\x1Fu�?Ѿ�R7�c�\x06�5�\x19o�\x1A\nY��1�燿�\x19˟�:(�mU�O��e\x15�]\\T�8zlފ�&�~\x0E�fIܴ���z�\x11ܠ8�/{'�,0b���3�뎎?\x13Bc���g�s���u|�\x13�?��� ���B���\x0FF�\x1A\x1C֘I����s�Z#\x7F\x02�\x18u�\x15An�%O�Z%T�Jqҡ4\x1CbӇ�\x03�9F�'���^�ՍF��Kio[�����\x1F�I6Y3Fc��^�KM���P��W\x1C��S\x04��uq4~�X��zh�*\v\a�\n                                <2�[\x0F[�P,�OƍTZ�\x03j��D�\r${�3e�\x1A#\e	�\x13a�����1=*�xъ6N�\r9��.\"F��a�y_���f\n_\x13���}Cs��4JM$�2\x1C\eu�1�xp\b�X�\r>����gCO�T��\"$��\x1E/�y�F\f����\e&^Թ:BTk�Zh\x17�n��.\eǤ�\x14\x1F\n                                    <?�;���O��r\x1F\x034^]�\x05>\x1E�*:\x15�楞�i�(�A�\x14�+\x17�!���%������!b֧\x06T�dr�5J�ʅ�W��=����\x15dᨉ\b��\x19�F�!��\x14�(��:^A�\ao\\�\x1C����\x0Eo�#�\\]\x19\x03�}�-�+`\"M\x122��\x13�C��q\x14�g��[���P36;B��\\T6�\x03�WL��$\"����Oy\x18v'$�0\x7F�\x1FֺLuƌ(\x13�^�n�\x17��6Dv�\x16�tAu��w[��\x15�\eOr�x\\����6\x16�\x1F���cu/�I]\x16S^\x1E�k�`�˖�/�Jқ�a�\x06�ȍ�f�s�_��Ӕ\x1C\v��N=\x04?\x1C\x18y�\f����\x16:^���¸���O��P�P�_�\x01�'��\x11���X�\x0Fs5�(6h����u�m�X��*I\x02c3\f�\x14\x12�K4H$I+y��&����5|yQ���\v5`p\nm�>لgq\aB:ɏH�g\x02�c4cp\x1EKj](P�HpA��]p��6,�UiL\0�Á��,�\\Z\x17Z�\\Y3,�Gl�e]^^�y�\x1A6�Ri�\x06f�^w\n�Q��v\\�\r�X���Ă�N4�\x06��c<�D�DxZ�fhv����[\x1F|��7���f��Ϻ��`i�q�ybx&\x11�`���8$M#�	뼃D\x16���M`\x10��\f�����\r����������\x03��\x02B��h,� ��)}qz;�NX�P\x19����vx��([�x�tSٹІ�E�p�Āj��.g\x0F\\�2��XG��6$kp20��ƃ�DP�R��F��0���\x10��W4��׺���*���5Յj'\x13mPI�\x0E[���R��\0�{#C\x15\x01���]��\x1DЮs}\e+�9\x0F��\0c\x0E��d\x01m\x0E|�:�d��u�O����ȟ��;ב?%�w�#\x7FJ��\\G�d�\e\x0E�]�%�f\x19\x06�I�\x18p;M̦��\x03\x16l�c\x13-�\x13X�%��oX\x1D���F<��i<�w�pF#��{p�8�%�P%\x01�YX���:�p\x1C�uU��U��\x15�KȢ�i�pD�p�$�X$҃�ͻP�vʾ�7Ds�ېt�ɨ](��P0�*�\v\f�\b\b0\x1C��%F�@�Lh\x16\b\x0E\b\x13\x1A\x03B\x0E�	}\0�\n|�΁0\a\x12�{ p��)`\0�\fz@^_8@�@`�\x19\x10\x1D\x10\x01\b�?w�-��[I[Z\x12QU\x12��gR�q����\x04�����ʅ�CB=�+\x11CAurO\nVp6�$f^X��%�s�\rܴll\"\e\x18wB|�g��\x04� 	S�,R5ǽ\b>�`N�	5�\x1E@\x111\vCx��Y\x1C@��Y��|�?O:�\x03pߤ�-d�e0R��gDeó�`�j�^Lnʤ�tDG+�\v�\x14|�H\f\NB[�\x03OK�P\x02}�[�tx�8�$�a\x14�\x12*M\x1E�\v��\n                                    <H��C�5U0��@�K\x0E��`�tM�?�o# ��WَX(�4m^l�K.�ܦx1�\x0E�\x03/;��\x13�\x01(��4�\x1C,��e�#�}D\x16�U/\x1C�O'�}�B�9\x02�O�[���u2�\f#T�c�\bp\x1Do�\bD�BB���7I��TͫRq@Z\x1E*$M��h�M$3�\x04��\x1AA�M\x1A�;?\x03n��i�4`���~|�b�N�E�:�\x11�8J�Ȗ,��ZY�����X�eMWLʩ�7@�\x15\x11\x05�UY�L�Q1�+�̏��o�՞yQAfe�\e(e�O���뫙6�'ؖ\x03ޚ���<�\x02t���zL�\x19�yI��=N$�\x12�VF!6��4�\x156?\x02�:M��ap\x04)���m.�=J�&�\x1F\x1C\x16#MJ���j3e��)�/͌�\x10�dxsIHjN'�Sl;	�ʞ�i�)�\x16\\,N��Qeə��\x11�\x1D>\x1C�{m�o�8�\n�ۡz�\x1D�=�Y�W� �^E��\"��\r\x03}�.~\\$���\x7F�\x7F\x03PK\x01\x02?\x03\x14\0\x02\0\b\0I��Rrh�jp\x10\0\0e=\0\0\x0F\0\0\0\0\0\0\0\0\0\0\0��\0\0\0\0EnvioBoleta.xmlPK\x01\x02?\x03\x14\0\x02\0\b\0I��R���0�	\0\0�\x11\0\0\x10\0\0\0\0\0\0\0\0\0\0\0���\x10\0\0ConsumoFolio.xmlPK\x05\x06\0\0\0\0\x02\0\x02\0{\0\0\0�\x1A\0\0\0\0"
+
+                    headers:
+                        Server:
+                            type: string
+
+                            default: nginx/1.21.0
+
+                        Date:
+                            type: string
+
+                            default: Sun, 30 May 2021 21:10:18 GMT
+
+                        Transfer-Encoding:
+                            type: string
+
+                            default: chunked
+
+                        Connection:
+                            type: string
+
+                            default: keep-alive
+
+                        X-Powered-By:
+                            type: string
+
+                            default: PHP/7.4.19
+
+                        Expires:
+                            type: string
+
+                            default: Thu, 19 Nov 1981 08:52:00 GMT
+
+                        Cache-Control:
+                            type: string
+
+                            default: no-store, no-cache, must-revalidate
+
+                        Pragma:
+                            type: string
+
+                            default: no-cache
+
+                        Content-disposition:
+                            type: string
+
+                            default: attachment; filename=files.zip
+
+            security: []
+
+    /api/getServidor:
+        post:
+            description: "# Api de Facturación, basada en LibreDTE."
+
+            summary: getServidor
+
+            tags:
+                - Production
+
+            operationId: getServidor
+
+            deprecated: false
+
+            produces:
+                - text/html; charset=UTF-8
+
+            parameters: []
+
+            responses:
+                "200":
+                    description: OK
+
+                    schema:
+                        $ref: "#/definitions/getServidor"
+
+                    examples:
+                        text/html; charset=UTF-8:
+                            success: true
+
+                            data: palena
+
+                    headers:
+                        Server:
+                            type: string
+
+                            default: nginx/1.21.0
+
+                        Date:
+                            type: string
+
+                            default: Sat, 29 May 2021 21:39:55 GMT
+
+                        Transfer-Encoding:
+                            type: string
+
+                            default: chunked
+
+                        Connection:
+                            type: string
+
+                            default: keep-alive
+
+                        X-Powered-By:
+                            type: string
+
+                            default: PHP/7.4.19
+
+                        Expires:
+                            type: string
+
+                            default: Thu, 19 Nov 1981 08:52:00 GMT
+
+                        Cache-Control:
+                            type: string
+
+                            default: no-store, no-cache, must-revalidate
+
+                        Pragma:
+                            type: string
+
+                            default: no-cache
+
+    /api/checkCertificado:
+        post:
+            description: Se verifica el arcchivo CAF. retornando un json con la informacion del CAF
+
+            summary: Check Certificado
+
+            tags:
+                - Production
+
+            operationId: CheckCertificado
+
+            deprecated: false
+
+            produces:
+                - application/json
+
+            consumes:
+                - application/x-www-form-urlencoded
+
+            parameters:
+                - name: cert
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Certificado digital
+
+                - name: password
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Contraseña correspondiente al certificado digital
+
+            responses:
+                "200":
+                    description: OK
+
+                    schema:
+                        $ref: "#/definitions/CheckCertificado"
+
+                    examples:
+                        application/json:
+                            success: false
+
+                            error: Error en los datos recibidos.
+
+                    headers:
+                        Server:
+                            type: string
+
+                            default: nginx/1.21.0
+
+                        Date:
+                            type: string
+
+                            default: Sun, 30 May 2021 03:15:29 GMT
+
+                        Transfer-Encoding:
+                            type: string
+
+                            default: chunked
+
+                        Connection:
+                            type: string
+
+                            default: keep-alive
+
+                        X-Powered-By:
+                            type: string
+
+                            default: PHP/7.4.19
+
+                        Expires:
+                            type: string
+
+                            default: Thu, 19 Nov 1981 08:52:00 GMT
+
+                        Cache-Control:
+                            type: string
+
+                            default: no-store, no-cache, must-revalidate
+
+                        Pragma:
+                            type: string
+
+                            default: no-cache
+
+    /api/chkCaf:
+        post:
+            summary: Check CAF
+
+            tags:
+                - Production
+
+            operationId: CheckCAF
+
+            deprecated: false
+
+            produces:
+                - application/json
+
+            consumes:
+                - application/x-www-form-urlencoded
+
+            parameters:
+                - name: caf
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Nombre del archivo devuelto por "/recibeFile"
+
+            responses:
+                "200":
+                    description: OK
+
+                    schema:
+                        $ref: "#/definitions/Fail"
+
+                    examples:
+                        application/json:
+                            success: false
+
+                            error: Error en los datos recibidos.
+
+                    headers:
+                        Server:
+                            type: string
+
+                            default: nginx/1.21.0
+
+                        Date:
+                            type: string
+
+                            default: Sun, 30 May 2021 03:26:34 GMT
+
+                        Transfer-Encoding:
+                            type: string
+
+                            default: chunked
+
+                        Connection:
+                            type: string
+
+                            default: keep-alive
+
+                        X-Powered-By:
+                            type: string
+
+                            default: PHP/7.4.19
+
+                        Expires:
+                            type: string
+
+                            default: Thu, 19 Nov 1981 08:52:00 GMT
+
+                        Cache-Control:
+                            type: string
+
+                            default: no-store, no-cache, must-revalidate
+
+                        Pragma:
+                            type: string
+
+                            default: no-cache
+
+    /api/envioDte:
+        post:
+            summary: Enviar Boleta
+
+            tags:
+                - Production
+
+            operationId: EnviarBoleta
+
+            deprecated: false
+
+            produces:
+                - application/json
+
+            consumes:
+                - application/x-www-form-urlencoded
+
+            parameters:
+                - name: caratula
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: ""
+
+                - name: idDoc
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: ""
+
+                - name: Emisor
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: ""
+
+                - name: Receptor
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: ""
+
+                - name: Detalle
+
+                  in: formData
+
+                  required: true
+
+                  type: array
+
+                  items:
+                      type: string
+
+                  description: ""
+
+                - name: cert
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: ""
+
+                - name: password
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: ""
+
+                - name: caf
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: ""
+
+            responses:
+                "200":
+                    description: OK
+
+                    schema:
+                        $ref: "#/definitions/EnviarBoleta"
+
+                    examples:
+                        application/json:
+                            success: true
+
+                            data:
+                                track_id: 10128191
+
+                                xml: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iSVNPLTg4NTktMSI/Pgo8RW52aW9CT0xFVEEgeG1sbnM9Imh0dHA6Ly93d3cuc2lpLmNsL1NpaUR0ZSIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LnNpaS5jbC9TaWlEdGUgRW52aW9CT0xFVEFfdjExLnhzZCIgdmVyc2lvbj0iMS4wIj4KICA8U2V0RFRFIElEPSJMaWJyZURURV9TZXREb2MiPgogICAgPENhcmF0dWxhIHZlcnNpb249IjEuMCI+CiAgICAgIDxSdXRFbWlzb3I+NzcxOTcyNzctMjwvUnV0RW1pc29yPgogICAgICA8UnV0RW52aWE+MTg5NzM3OTctMTwvUnV0RW52aWE+CiAgICAgIDxSdXRSZWNlcHRvcj42MDgwMzAwMC1LPC9SdXRSZWNlcHRvcj4KICAgICAgPEZjaFJlc29sPjIwMjEtMDEtMDc8L0ZjaFJlc29sPgogICAgICA8TnJvUmVzb2w+MDwvTnJvUmVzb2w+CiAgICAgIDxUbXN0RmlybWFFbnY+MjAyMS0wNS0zMFQxODoxMzo0MDwvVG1zdEZpcm1hRW52PgogICAgICA8U3ViVG90RFRFPgogICAgICAgIDxUcG9EVEU+Mzk8L1Rwb0RURT4KICAgICAgICA8TnJvRFRFPjE8L05yb0RURT4KICAgICAgPC9TdWJUb3REVEU+CiAgICA8L0NhcmF0dWxhPgogICAgPERURSB2ZXJzaW9uPSIxLjAiPgogIDxEb2N1bWVudG8gSUQ9IkxpYnJlRFRFX1QzOUY3MDYiPgogICAgPEVuY2FiZXphZG8+CiAgICAgIDxJZERvYz4KICAgICAgICA8VGlwb0RURT4zOTwvVGlwb0RURT4KICAgICAgICA8Rm9saW8+NzA2PC9Gb2xpbz4KICAgICAgICA8RmNoRW1pcz4zMC0wNS0yMDIxPC9GY2hFbWlzPgogICAgICAgIDxJbmRTZXJ2aWNpbz4zPC9JbmRTZXJ2aWNpbz4KICAgICAgPC9JZERvYz4KICAgICAgPEVtaXNvcj4KICAgICAgICA8UlVURW1pc29yPjc3MTk3Mjc3LTI8L1JVVEVtaXNvcj4KICAgICAgICA8UnpuU29jRW1pc29yPlREUzwvUnpuU29jRW1pc29yPgogICAgICAgIDxEaXJPcmlnZW4+cGxhemEgZGUgdmnxYSBkZWwgbWFyPC9EaXJPcmlnZW4+CiAgICAgICAgPENtbmFPcmlnZW4+TG9zIEFuZGVzPC9DbW5hT3JpZ2VuPgogICAgICA8L0VtaXNvcj4KICAgICAgPFJlY2VwdG9yPgogICAgICAgIDxSVVRSZWNlcD42NjY2NjY2Ni02PC9SVVRSZWNlcD4KICAgICAgICA8UnpuU29jUmVjZXA+Uy9OPC9Sem5Tb2NSZWNlcD4KICAgICAgPC9SZWNlcHRvcj4KICAgICAgPFRvdGFsZXM+CiAgICAgICAgPE1udFRvdGFsPjQyMDwvTW50VG90YWw+CiAgICAgIDwvVG90YWxlcz4KICAgIDwvRW5jYWJlemFkbz4KICAgIDxEZXRhbGxlPgogICAgICA8TnJvTGluRGV0PjE8L05yb0xpbkRldD4KICAgICAgPE5tYkl0ZW0+aXRlbTwvTm1iSXRlbT4KICAgICAgPFF0eUl0ZW0+MTwvUXR5SXRlbT4KICAgICAgPFByY0l0ZW0+NDIwPC9QcmNJdGVtPgogICAgICA8TW9udG9JdGVtPjQyMDwvTW9udG9JdGVtPgogICAgPC9EZXRhbGxlPgogICAgPFRFRCB2ZXJzaW9uPSIxLjAiPgogIDxERD4KICAgIDxSRT43NzE5NzI3Ny0yPC9SRT4KICAgIDxURD4zOTwvVEQ+CiAgICA8Rj43MDY8L0Y+CiAgICA8RkU+MzAtMDUtMjAyMTwvRkU+CiAgICA8UlI+NjY2NjY2NjYtNjwvUlI+CiAgICA8UlNSPlMvTjwvUlNSPgogICAgPE1OVD40MjA8L01OVD4KICAgIDxJVDE+aXRlbTwvSVQxPgogICAgPENBRiB2ZXJzaW9uPSIxLjAiPgo8REE+CjxSRT43NzE5NzI3Ny0yPC9SRT4KPFJTPlRPRE8gU09GVCBTUEE8L1JTPgo8VEQ+Mzk8L1REPgo8Uk5HPjxEPjcwNjwvRD48SD44MDU8L0g+PC9STkc+CjxGQT4yMDIxLTAxLTEwPC9GQT4KPFJTQVBLPjxNPjZqbmtpaWdXMmpBeUlMZE1yUGdvbnR5WmRsYjh4WG82azZwenU1UnBJQVFJR2lOcDdLd2x1ZWx6QThXVVI3OG9TaU0xYXBURjd6cnZ0Rmxkb2hNSHN3PT08L00+PEU+QXc9PTwvRT48L1JTQVBLPgo8SURLPjEwMDwvSURLPgo8L0RBPgo8RlJNQSBhbGdvcml0bW89IlNIQTF3aXRoUlNBIj5NSm5FY2c0Wk1Yc0kycmN4UzQvR0ZvdzhKNGlCOXZzdFBpMG1hNTJGRlh1R2ZsS1Z1dzVscjJ2Yko4YldkSkE5d29QU3pOMkhYZExnOTB2dm84bjJUUT09PC9GUk1BPgo8L0NBRj4KICAgIDxUU1RFRD4yMDIxLTA1LTMwVDE4OjEzOjQwPC9UU1RFRD4KICA8L0REPgogIDxGUk1UIGFsZ29yaXRtbz0iU0hBMXdpdGhSU0EiPlk5NDBFdTAzaTR3ZENzQytIblp4MnVLaUsxekkwd2dFSldkRWdhMVFkMkRmYStZWTFWbG16RkxWVm9ncHMydGQ5R0F6Z3ZReDkrMVdKUjJUa25XTHZnPT08L0ZSTVQ+CjwvVEVEPgogIDxUbXN0RmlybWE+MjAyMS0wNS0zMFQxODoxMzo0MDwvVG1zdEZpcm1hPjwvRG9jdW1lbnRvPgo8U2lnbmF0dXJlIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjIj48U2lnbmVkSW5mbyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+PENhbm9uaWNhbGl6YXRpb25NZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy14bWwtYzE0bi0yMDAxMDMxNSIvPjxTaWduYXR1cmVNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjcnNhLXNoYTEiLz48UmVmZXJlbmNlIFVSST0iI0xpYnJlRFRFX1QzOUY3MDYiPjxUcmFuc2Zvcm1zPjxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjZW52ZWxvcGVkLXNpZ25hdHVyZSIvPjwvVHJhbnNmb3Jtcz48RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiLz48RGlnZXN0VmFsdWU+bGl0Mm1YQ1lrODYzQmJRb1V5YUp4RXY2QzRZPTwvRGlnZXN0VmFsdWU+PC9SZWZlcmVuY2U+PC9TaWduZWRJbmZvPjxTaWduYXR1cmVWYWx1ZT5uTHg4OGhTNzhRcXY0K2piam4zZ3NudFVXL1dCbDZmREtVbUUwd3poTmFINjRMTE9la3R3c3ZZSGh6OGNFWjlkCllBOXhyZlNBUnhmejNvNHdvS3p6UUp5QXh6Z0EySUpQbFI2cno0bENTaXhiTnBZVS9qZnlLMzBDZ2hmSTZJbXEKRFdlUEZTTHFFUXlvOXUyc2FYRUlVUmZ2SVlJd2VaM24yUGxqMEp2bUhUVzM3dVhYM0ZYLzd5VzJZcnE3dGxkegozTlFhb0hyWDFDZTMvTlBnemcyQXRMQjZNQXhrRE4zWmlGUDh6QjFZTFpORklSckZ4a0ZEb3hvamE5ZzNRQVg2CnQ0eDJNazFoclJGV3VyejZVb2JiakN1aDZHcUtDd0NSWFN1UHhiYStaR2tZeEk5QTJRandFaTNjZjJoZXFOVTYKR3loZy9XVUo5S0h0eFhnT2FNWHZuUT09PC9TaWduYXR1cmVWYWx1ZT48S2V5SW5mbz48S2V5VmFsdWU+PFJTQUtleVZhbHVlPjxNb2R1bHVzPnI3bUJMMm44K3pMZEwwV25LYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkwKS1VNZ0hBMndVejhvTjNyYzNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUgpzZ2NDNnNXSDNwdmtlZWRlaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1CmlvMFlYbXpaT0o5dlE3Mm5nQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlMKbStZL1UxMHJ3SnRncm5sNkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VwoxcHBDSjdMelQrWTA4Uy80WHRaWktRPT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+PC9LZXlWYWx1ZT48WDUwOURhdGE+PFg1MDlDZXJ0aWZpY2F0ZT5NSUlHQ1RDQ0JQR2dBd0lCQWdJSU5uRkFORFIxMVhFd0RRWUpLb1pJaHZjTkFRRUxCUUF3Z2JjeEhqQWNCZ2txCmhraUc5dzBCQ1FFV0QzTnZjRzl5ZEdWQWFXUnZheTVqYkRFZk1CMEdBMVVFQXd3V1NVUlBTeUJHU1ZKTlFTQkYKVEVWRFZGSlBUa2xEUVRFWE1CVUdBMVVFQ3d3T1VsVlVMVGMyTmpFd056RTRMVFF4SURBZUJnTlZCQXNNRjBGMQpkRzl5YVdSaFpDQkRaWEowYVdacFkyRmtiM0poTVJrd0Z3WURWUVFLREJCQ1VFOGdRV1IyYVhOdmNuTWdVM0JCCk1SRXdEd1lEVlFRSERBaFRZVzUwYVdGbmJ6RUxNQWtHQTFVRUJoTUNRMHd3SGhjTk1qQXdPREEyTVRReE5EQXkKV2hjTk1qSXdPREEyTVRReE5EQXlXakNCZ0RFbE1DTUdBMVVFQXd3Y1RVRlNRMDlUSUVGTVJWaEpVeUJRVlV4SApRVklnUVVORlZrVkVUekVvTUNZR0NTcUdTSWIzRFFFSkFSWVpiV0Z5WTI5ekxuQjFiR2RoY2k1aFFHZHRZV2xzCkxtTnZiVEVUTUJFR0ExVUVCUk1LTVRnNU56TTNPVGN0TVRFTE1Ba0dBMVVFQmhNQ1Ewd3hDekFKQmdOVkJBY00KQWxKTk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBcjdtQkwybjgrekxkTDBXbgpLYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkxLVU1nSEEyd1V6OG9OM3JjCjNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUnNnY0M2c1dIM3B2a2VlZGUKaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1aW8wWVhtelpPSjl2UTcybgpnQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlNtK1kvVTEwcndKdGdybmw2CkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VzFwcENKN0x6VCtZMDhTLzQKWHRaWktRSURBUUFCbzRJQ1REQ0NBa2d3Q1FZRFZSMFRCQUl3QURBZkJnTlZIU01FR0RBV2dCVHdiRE8vckplVApXSHFoNE02ZTdPamUrMlUrK2pDQm1BWURWUjBnQklHUU1JR05NSUdLQmdvckJnRUVBWU9NSGdFRU1Id3dMQVlJCkt3WUJCUVVIQWdFV0lHaDBkSEJ6T2k4dmNITmpMbWxrYjJzdVkyd3ZiM0JsYmk5amNITXVjR1JtTUV3R0NDc0cKQVFVRkJ3SUNNRUFlUGdCREFHVUFjZ0IwQUdrQVpnQnBBR01BWVFCa0FHOEFJQUJ3QUdFQWNnQmhBQ0FBZFFCegpBRzhBSUFCVUFISUFhUUJpQUhVQWRBQmhBSElBYVFCdk1JSUJCd1lEVlIwZkJJSC9NSUg4TUlINW9EZWdOWVl6CmFIUjBjSE02THk5d2MyTXVhV1J2YXk1amJDOXZjR1Z1TDBsRVQwc2dSa2xTVFVFZ1JVeEZRMVJTVDA1SlEwRXUKWTNKc29vRzlwSUc2TUlHM01SNHdIQVlKS29aSWh2Y05BUWtCRmc5emIzQnZjblJsUUdsa2Iyc3VZMnd4SHpBZApCZ05WQkFNTUZrbEVUMHNnUmtsU1RVRWdSVXhGUTFSU1QwNUpRMEV4RnpBVkJnTlZCQXNNRGxKVlZDMDNOall4Ck1EY3hPQzAwTVNBd0hnWURWUVFMREJkQmRYUnZjbWxrWVdRZ1EyVnlkR2xtYVdOaFpHOXlZVEVaTUJjR0ExVUUKQ2d3UVFsQlBJRUZrZG1semIzSnpJRk53UVRFUk1BOEdBMVVFQnd3SVUyRnVkR2xoWjI4eEN6QUpCZ05WQkFZVApBa05NTUIwR0ExVWREZ1FXQkJSeVQvV2d5ZEp0aDFsOG9wSVVxQ1c4Z3ExMnV6QUxCZ05WSFE4RUJBTUNCSkF3Ckl3WURWUjBTQkJ3d0dxQVlCZ2dyQmdFRUFjRUJBcUFNRmdvM05qWXhNRGN4T0MwME1DTUdBMVVkRVFRY01CcWcKR0FZSUt3WUJCQUhCQVFHZ0RCWUtNVGc1TnpNM09UY3RNVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBSVBwbwpoaE9LK1BmZ0lSY3ZHREV2c0dJT1JCMFl2WWlBVmlZWDE2dkxzQTZYSUh3NHlvZVRUZ01Ld0RVWisyWWMxLzlPCmYzbjBQTW9TNWhGNzNDNEdqaXN2bDVuNkxZc0FOMUxIL0FsU29Ta0pCMXUrbHpZWDMza3F4dVd3ZkFTdHhGSEwKN25kano5TGYxNkV6Q21PWDdOOGs1MGZFQVdaRW9mNmtkZkEvK05GQURmV0N0aVFTeFA5SEdUNGdJMHlhQlNpOQpURlZENGhlckxEa3FBV291NTZJcHpVR0ljNnVxdGtHcncvMys1ZFlhcEsrTklnY3dxdE43TDVzMWg5MVBSaUZJCjF1UVc4SUdnckVPMm51ZVRVZzJoSldNV051NjlWbEVlSDY0TXZNSUlubkVSYmtVR05qMXpwcW1ONGtmb2VhZkcKVnYvT2NpcXRtMXZTc1duVkFnPT08L1g1MDlDZXJ0aWZpY2F0ZT48L1g1MDlEYXRhPjwvS2V5SW5mbz48L1NpZ25hdHVyZT48L0RURT4KICA8L1NldERURT4KPFNpZ25hdHVyZSB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+PFNpZ25lZEluZm8geG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tMjAwMTAzMTUiLz48U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3JzYS1zaGExIi8+PFJlZmVyZW5jZSBVUkk9IiNMaWJyZURURV9TZXREb2MiPjxUcmFuc2Zvcm1zPjxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjZW52ZWxvcGVkLXNpZ25hdHVyZSIvPjwvVHJhbnNmb3Jtcz48RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiLz48RGlnZXN0VmFsdWU+M2d0SWNXWVhqZWlYejFHeU5tT2NFL3lPMStFPTwvRGlnZXN0VmFsdWU+PC9SZWZlcmVuY2U+PC9TaWduZWRJbmZvPjxTaWduYXR1cmVWYWx1ZT5VWXBxcTRocnE1bFZHT3ZkUlVtNngxeHpyTzVaeGI5UkxjWWpCSThBcXhrclVDMDFFSldmNWFpOUZWMGkrWDNSCm5uSkpybVZCYzdqdDQzRXpZenZxMVllOTlpRjU4OXZHRzE3V2hoQUluUEQxOUtQYmVTZnFES0F1a0F3cjRBdWIKZjNnV1BTcVUzMjMvd1lneExtSU9CVlBrU3RFaFc1bXBCdUxHTmwrakpMNmdkTWdIUDlSMjB2YWZvOEdJaXFuTAozMm1oc3hmNFpURzU0RitQUiszR0p4YzR2cVNJbDE1eUd5M3haY29FbjRiSDQwWkFheGRmSlU3VDgyc01vZDZhCkVRZ1VnL2s5MGZaTWg2VHpqYzZUUE9KZHR4b1ZzL2FWOUZkTmVWdFJ0RTBEdzBjQmZORUpkdWtwQklRZm9UbnEKTk5LNHVnLzVLeGQvYXpyOW4xYy9lQT09PC9TaWduYXR1cmVWYWx1ZT48S2V5SW5mbz48S2V5VmFsdWU+PFJTQUtleVZhbHVlPjxNb2R1bHVzPnI3bUJMMm44K3pMZEwwV25LYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkwKS1VNZ0hBMndVejhvTjNyYzNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUgpzZ2NDNnNXSDNwdmtlZWRlaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1CmlvMFlYbXpaT0o5dlE3Mm5nQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlMKbStZL1UxMHJ3SnRncm5sNkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VwoxcHBDSjdMelQrWTA4Uy80WHRaWktRPT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+PC9LZXlWYWx1ZT48WDUwOURhdGE+PFg1MDlDZXJ0aWZpY2F0ZT5NSUlHQ1RDQ0JQR2dBd0lCQWdJSU5uRkFORFIxMVhFd0RRWUpLb1pJaHZjTkFRRUxCUUF3Z2JjeEhqQWNCZ2txCmhraUc5dzBCQ1FFV0QzTnZjRzl5ZEdWQWFXUnZheTVqYkRFZk1CMEdBMVVFQXd3V1NVUlBTeUJHU1ZKTlFTQkYKVEVWRFZGSlBUa2xEUVRFWE1CVUdBMVVFQ3d3T1VsVlVMVGMyTmpFd056RTRMVFF4SURBZUJnTlZCQXNNRjBGMQpkRzl5YVdSaFpDQkRaWEowYVdacFkyRmtiM0poTVJrd0Z3WURWUVFLREJCQ1VFOGdRV1IyYVhOdmNuTWdVM0JCCk1SRXdEd1lEVlFRSERBaFRZVzUwYVdGbmJ6RUxNQWtHQTFVRUJoTUNRMHd3SGhjTk1qQXdPREEyTVRReE5EQXkKV2hjTk1qSXdPREEyTVRReE5EQXlXakNCZ0RFbE1DTUdBMVVFQXd3Y1RVRlNRMDlUSUVGTVJWaEpVeUJRVlV4SApRVklnUVVORlZrVkVUekVvTUNZR0NTcUdTSWIzRFFFSkFSWVpiV0Z5WTI5ekxuQjFiR2RoY2k1aFFHZHRZV2xzCkxtTnZiVEVUTUJFR0ExVUVCUk1LTVRnNU56TTNPVGN0TVRFTE1Ba0dBMVVFQmhNQ1Ewd3hDekFKQmdOVkJBY00KQWxKTk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBcjdtQkwybjgrekxkTDBXbgpLYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkxLVU1nSEEyd1V6OG9OM3JjCjNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUnNnY0M2c1dIM3B2a2VlZGUKaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1aW8wWVhtelpPSjl2UTcybgpnQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlNtK1kvVTEwcndKdGdybmw2CkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VzFwcENKN0x6VCtZMDhTLzQKWHRaWktRSURBUUFCbzRJQ1REQ0NBa2d3Q1FZRFZSMFRCQUl3QURBZkJnTlZIU01FR0RBV2dCVHdiRE8vckplVApXSHFoNE02ZTdPamUrMlUrK2pDQm1BWURWUjBnQklHUU1JR05NSUdLQmdvckJnRUVBWU9NSGdFRU1Id3dMQVlJCkt3WUJCUVVIQWdFV0lHaDBkSEJ6T2k4dmNITmpMbWxrYjJzdVkyd3ZiM0JsYmk5amNITXVjR1JtTUV3R0NDc0cKQVFVRkJ3SUNNRUFlUGdCREFHVUFjZ0IwQUdrQVpnQnBBR01BWVFCa0FHOEFJQUJ3QUdFQWNnQmhBQ0FBZFFCegpBRzhBSUFCVUFISUFhUUJpQUhVQWRBQmhBSElBYVFCdk1JSUJCd1lEVlIwZkJJSC9NSUg4TUlINW9EZWdOWVl6CmFIUjBjSE02THk5d2MyTXVhV1J2YXk1amJDOXZjR1Z1TDBsRVQwc2dSa2xTVFVFZ1JVeEZRMVJTVDA1SlEwRXUKWTNKc29vRzlwSUc2TUlHM01SNHdIQVlKS29aSWh2Y05BUWtCRmc5emIzQnZjblJsUUdsa2Iyc3VZMnd4SHpBZApCZ05WQkFNTUZrbEVUMHNnUmtsU1RVRWdSVXhGUTFSU1QwNUpRMEV4RnpBVkJnTlZCQXNNRGxKVlZDMDNOall4Ck1EY3hPQzAwTVNBd0hnWURWUVFMREJkQmRYUnZjbWxrWVdRZ1EyVnlkR2xtYVdOaFpHOXlZVEVaTUJjR0ExVUUKQ2d3UVFsQlBJRUZrZG1semIzSnpJRk53UVRFUk1BOEdBMVVFQnd3SVUyRnVkR2xoWjI4eEN6QUpCZ05WQkFZVApBa05NTUIwR0ExVWREZ1FXQkJSeVQvV2d5ZEp0aDFsOG9wSVVxQ1c4Z3ExMnV6QUxCZ05WSFE4RUJBTUNCSkF3Ckl3WURWUjBTQkJ3d0dxQVlCZ2dyQmdFRUFjRUJBcUFNRmdvM05qWXhNRGN4T0MwME1DTUdBMVVkRVFRY01CcWcKR0FZSUt3WUJCQUhCQVFHZ0RCWUtNVGc1TnpNM09UY3RNVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBSVBwbwpoaE9LK1BmZ0lSY3ZHREV2c0dJT1JCMFl2WWlBVmlZWDE2dkxzQTZYSUh3NHlvZVRUZ01Ld0RVWisyWWMxLzlPCmYzbjBQTW9TNWhGNzNDNEdqaXN2bDVuNkxZc0FOMUxIL0FsU29Ta0pCMXUrbHpZWDMza3F4dVd3ZkFTdHhGSEwKN25kano5TGYxNkV6Q21PWDdOOGs1MGZFQVdaRW9mNmtkZkEvK05GQURmV0N0aVFTeFA5SEdUNGdJMHlhQlNpOQpURlZENGhlckxEa3FBV291NTZJcHpVR0ljNnVxdGtHcncvMys1ZFlhcEsrTklnY3dxdE43TDVzMWg5MVBSaUZJCjF1UVc4SUdnckVPMm51ZVRVZzJoSldNV051NjlWbEVlSDY0TXZNSUlubkVSYmtVR05qMXpwcW1ONGtmb2VhZkcKVnYvT2NpcXRtMXZTc1duVkFnPT08L1g1MDlDZXJ0aWZpY2F0ZT48L1g1MDlEYXRhPjwvS2V5SW5mbz48L1NpZ25hdHVyZT48L0VudmlvQk9MRVRBPgo=
+
+                    headers:
+                        Server:
+                            type: string
+
+                            default: nginx/1.21.0
+
+                        Date:
+                            type: string
+
+                            default: Sun, 30 May 2021 18:13:41 GMT
+
+                        Transfer-Encoding:
+                            type: string
+
+                            default: chunked
+
+                        Connection:
+                            type: string
+
+                            default: keep-alive
+
+                        X-Powered-By:
+                            type: string
+
+                            default: PHP/7.4.19
+
+                        Expires:
+                            type: string
+
+                            default: Thu, 19 Nov 1981 08:52:00 GMT
+
+                        Cache-Control:
+                            type: string
+
+                            default: no-store, no-cache, must-revalidate
+
+                        Pragma:
+                            type: string
+
+                            default: no-cache
+
+    /api/generarPDF:
+        post:
+            summary: Generar PDF
+
+            tags:
+                - Production
+
+            operationId: GenerarPDF
+
+            deprecated: false
+
+            produces:
+                - application/json
+
+            consumes:
+                - application/x-www-form-urlencoded
+
+            parameters:
+                - name: xml
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Archivo XML correspondiente al documento
+
+                - name: logo
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: Logo de la empresa en png
+
+            responses:
+                "200":
+                    description: OK
+
+                    schema:
+                        $ref: "#/definitions/GenerarPDF"
+
+                    examples:
+                        application/json:
+                            success: false
+
+                            error: Error en los datos recibidos.
+
+                    headers:
+                        Server:
+                            type: string
+
+                            default: nginx/1.21.0
+
+                        Date:
+                            type: string
+
+                            default: Sun, 30 May 2021 03:25:33 GMT
+
+                        Transfer-Encoding:
+                            type: string
+
+                            default: chunked
+
+                        Connection:
+                            type: string
+
+                            default: keep-alive
+
+                        X-Powered-By:
+                            type: string
+
+                            default: PHP/7.4.19
+
+                        Expires:
+                            type: string
+
+                            default: Thu, 19 Nov 1981 08:52:00 GMT
+
+                        Cache-Control:
+                            type: string
+
+                            default: no-store, no-cache, must-revalidate
+
+                        Pragma:
+                            type: string
+
+                            default: no-cache
+
+    /api/envioRcof:
+        post:
+            summary: Enviar RCOF
+
+            tags:
+                - Production
+
+            operationId: EnviarRCOF
+
+            deprecated: false
+
+            produces:
+                - application/json
+
+            consumes:
+                - application/x-www-form-urlencoded
+
+            parameters:
+                - name: rut
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Rut de la empresa, con guion y digitiro verificador
+
+                - name: nro_resolucion
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Numero de Resolucion
+
+                - name: fecha_resolucion
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Fecha de Resolucion
+
+                - name: name_cert
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Nombre del archivo devuelto por "/recibeFile"
+
+                - name: password
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Contraseña del certifiado Personal
+
+                - name: inicio
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Fecha de inicio del reporte en formato "Y-m-d"
+
+                - name: fin
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Fecha de fin del reporte en formato "Y-m-d"
+
+                - name: xmls
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Array con nombres de los archivos devueltos por "/recibeFile" al enviar los xml
+
+            responses:
+                "200":
+                    description: OK
+
+                    schema:
+                        $ref: "#/definitions/EnviarRCOF"
+
+                    examples:
+                        application/json:
+                            success: false
+
+                            error: "Error de esquema: No hay XML de ConsumoFolio que validarNo hay XML de ConsumoFolio que validarNo fue posible firmar los datosNo fue posible obtener el ID de la firma"
+
+                    headers:
+                        Server:
+                            type: string
+
+                            default: nginx/1.21.0
+
+                        Date:
+                            type: string
+
+                            default: Sun, 30 May 2021 03:25:36 GMT
+
+                        Transfer-Encoding:
+                            type: string
+
+                            default: chunked
+
+                        Connection:
+                            type: string
+
+                            default: keep-alive
+
+                        X-Powered-By:
+                            type: string
+
+                            default: PHP/7.4.19
+
+                        Expires:
+                            type: string
+
+                            default: Thu, 19 Nov 1981 08:52:00 GMT
+
+                        Cache-Control:
+                            type: string
+
+                            default: no-store, no-cache, must-revalidate
+
+                        Pragma:
+                            type: string
+
+                            default: no-cache
+
+    /api/consultaEstadoBoleta:
+        post:
+            summary: Consultar estado de Boleta
+
+            tags:
+                - Production
+
+            operationId: ConsultarestadodeBoleta
+
+            deprecated: false
+
+            produces:
+                - application/json
+
+            consumes:
+                - application/x-www-form-urlencoded
+
+            parameters:
+                - name: rutEmpresa
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Rut sin puntos, guion ni dijito verificador.
+
+                - name: dvEmpresa
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Digito verificador del rut de la empresa.
+
+                - name: folio
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Folio de la boleta
+
+                - name: fecha
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Fecha de emision de la boleta
+
+                - name: monto
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Monto neto de la boleta
+
+                - name: cert
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Certificado digital
+
+                - name: password
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) Contraseña correspondiente al certificado
+
+            responses:
+                "200":
+                    description: OK
+
+                    schema:
+                        $ref: "#/definitions/ConsultarestadodeBoleta"
+
+                    examples:
+                        application/json:
+                            success: false
+
+                            error: false
+
+                    headers:
+                        Server:
+                            type: string
+
+                            default: nginx/1.21.0
+
+                        Date:
+                            type: string
+
+                            default: Sun, 30 May 2021 03:25:40 GMT
+
+                        Transfer-Encoding:
+                            type: string
+
+                            default: chunked
+
+                        Connection:
+                            type: string
+
+                            default: keep-alive
+
+                        X-Powered-By:
+                            type: string
+
+                            default: PHP/7.4.19
+
+                        Expires:
+                            type: string
+
+                            default: Thu, 19 Nov 1981 08:52:00 GMT
+
+                        Cache-Control:
+                            type: string
+
+                            default: no-store, no-cache, must-revalidate
+
+                        Pragma:
+                            type: string
+
+                            default: no-cache
+
+    /api}/recibeFile:
+        post:
+            summary: RecibeFIle
+
+            tags:
+                - Production
+
+            operationId: RecibeFIle
+
+            deprecated: false
+
+            produces:
+                - application/json
+
+            consumes:
+                - application/x-www-form-urlencoded
+
+            parameters:
+                - name: file
+
+                  in: formData
+
+                  required: true
+
+                  type: string
+
+                  description: (requerido) archivo a subir
+
+            responses:
+                "200":
+                    description: ""
+
+                    headers: {}
+
+definitions:
+    set_prueba:
+        title: set_prueba
+
+        example:
+            Detalle:
+                - NmbItem: Cambio de aceite
+
+                  QtyItem: 1
+
+                  PrcItem: 19900
+
+                - NmbItem: Alineacion y balanceo
+
+                  QtyItem: 1
+
+                  PrcItem: 9900
+
+            Referencia:
+                CodRef: SET
+
+                RazonRef: CASO-1
+
+        type: object
+
+        properties:
+            Detalle:
+                type: array
+
+                items:
+                    $ref: "#/definitions/Detalle"
+
+            Referencia:
+                $ref: "#/definitions/Referencia"
+
+        required:
+            - Detalle
+
+            - Referencia
+
+    Detalle:
+        title: Detalle
+
+        example:
+            NmbItem: Cambio de aceite
+
+            QtyItem: 1
+
+            PrcItem: 19900
+
+        type: object
+
+        properties:
+            NmbItem:
+                type: string
+
+            QtyItem:
+                type: integer
+
+                format: int32
+
+            PrcItem:
+                type: integer
+
+                format: int32
+
+        required:
+            - NmbItem
+
+            - QtyItem
+
+            - PrcItem
+
+    Referencia:
+        title: Referencia
+
+        example:
+            CodRef: SET
+
+            RazonRef: CASO-1
+
+        type: object
+
+        properties:
+            CodRef:
+                type: string
+
+            RazonRef:
+                type: string
+
+        required:
+            - CodRef
+
+            - RazonRef
+
+    caratula:
+        title: caratula
+
+        example:
+            RutEnvia: 18973797-1
+
+            RutReceptor: 60803000-K
+
+            FchResol: 2020-09-05
+
+            NroResol: 0
+
+        type: object
+
+        properties:
+            RutEnvia:
+                type: string
+
+            RutReceptor:
+                type: string
+
+            FchResol:
+                type: string
+
+            NroResol:
+                type: integer
+
+                format: int32
+
+        required:
+            - RutEnvia
+
+            - RutReceptor
+
+            - FchResol
+
+            - NroResol
+
+    emisor:
+        title: emisor
+
+        example:
+            RUTEmisor: 77197277-2
+
+            RznSoc: ToDo Soft SpA
+
+            GiroEmis: OTRAS ACTIVIDADES DE TECNOLOGIA DE LA INFORMACION Y DE SERVICIOS INFORMATICOS
+
+            Acteco: "620900"
+
+            DirOrigen: "6 Y MEDIO ORIENTE, ESP 81 #270="
+
+            CmnaOrigen: VINA DEL MAR
+
+        type: object
+
+        properties:
+            RUTEmisor:
+                type: string
+
+            RznSoc:
+                type: string
+
+            GiroEmis:
+                type: string
+
+            Acteco:
+                type: string
+
+            DirOrigen:
+                type: string
+
+            CmnaOrigen:
+                type: string
+
+        required:
+            - RUTEmisor
+
+            - RznSoc
+
+            - GiroEmis
+
+            - Acteco
+
+            - DirOrigen
+
+            - CmnaOrigen
+
+    getServidor:
+        title: getServidor
+
+        example:
+            success: true
+
+            data: palena
+
+        type: object
+
+        properties:
+            success:
+                type: boolean
+
+            data:
+                type: string
+
+        required:
+            - success
+
+            - data
+
+    CheckCertificado:
+        title: CheckCertificado
+
+        example:
+            success: false
+
+            error: Error en los datos recibidos.
+
+        type: object
+
+        properties:
+            success:
+                type: boolean
+
+            error:
+                type: string
+
+        required:
+            - success
+
+            - error
+
+    Fail:
+        title: Fail
+
+        example:
+            success: false
+
+            error: Error en los datos recibidos.
+
+        type: object
+
+        properties:
+            success:
+                type: boolean
+
+            error:
+                type: string
+
+        required:
+            - success
+
+            - error
+
+    Success:
+        title: Success
+
+        example:
+            success: true
+
+            data:
+                bo_valido: true
+
+                nr_desde: 21
+
+                nr_hasta: 70
+
+                nr_tipo: 39
+
+                rut: 76949377-8
+
+        type: object
+
+        properties:
+            success:
+                type: boolean
+
+            data:
+                $ref: "#/definitions/Data"
+
+        required:
+            - success
+
+            - data
+
+    Data:
+        title: Data
+
+        example:
+            bo_valido: true
+
+            nr_desde: 21
+
+            nr_hasta: 70
+
+            nr_tipo: 39
+
+            rut: 76949377-8
+
+        type: object
+
+        properties:
+            bo_valido:
+                type: boolean
+
+            nr_desde:
+                type: integer
+
+                format: int32
+
+            nr_hasta:
+                type: integer
+
+                format: int32
+
+            nr_tipo:
+                type: integer
+
+                format: int32
+
+            rut:
+                type: string
+
+        required:
+            - bo_valido
+
+            - nr_desde
+
+            - nr_hasta
+
+            - nr_tipo
+
+            - rut
+
+    caratula1:
+        title: caratula1
+
+        example:
+            FchResol: 2021-01-07
+
+            NroResol: 0
+
+        type: object
+
+        properties:
+            FchResol:
+                type: string
+
+            NroResol:
+                type: integer
+
+                format: int32
+
+        required:
+            - FchResol
+
+            - NroResol
+
+    idDoc:
+        title: idDoc
+
+        example:
+            TipoDTE: "39"
+
+            Folio: 706
+
+            FchEmis: 30-05-2021
+
+        type: object
+
+        properties:
+            TipoDTE:
+                type: string
+
+            Folio:
+                type: integer
+
+                format: int32
+
+            FchEmis:
+                type: string
+
+        required:
+            - TipoDTE
+
+            - Folio
+
+            - FchEmis
+
+    Emisor1:
+        title: Emisor1
+
+        example:
+            RUTEmisor: 77197277-2
+
+            RznSoc: TDS
+
+            Telefono: "978774021"
+
+            CorreoEmisor: todosoft2020@gmail.com
+
+            Acteco: "4545"
+
+            DirOrigen: plaza de viña del mar
+
+            CmnaOrigen: Los Andes
+
+        type: object
+
+        properties:
+            RUTEmisor:
+                type: string
+
+            RznSoc:
+                type: string
+
+            Telefono:
+                type: string
+
+            CorreoEmisor:
+                type: string
+
+            Acteco:
+                type: string
+
+            DirOrigen:
+                type: string
+
+            CmnaOrigen:
+                type: string
+
+        required:
+            - RUTEmisor
+
+            - RznSoc
+
+            - Telefono
+
+            - CorreoEmisor
+
+            - Acteco
+
+            - DirOrigen
+
+            - CmnaOrigen
+
+    Receptor:
+        title: Receptor
+
+        example:
+            RUTRecep: 66666666-6
+
+            RznSocRecep: S/N
+
+        type: object
+
+        properties:
+            RUTRecep:
+                type: string
+
+            RznSocRecep:
+                type: string
+
+        required:
+            - RUTRecep
+
+            - RznSocRecep
+
+    Detalle1:
+        title: Detalle1
+
+        example:
+            NroLinDet: 1
+
+            NmbItem: item
+
+            QtyItem: 1
+
+            PrcItem: 420
+
+            MontoItem: 420
+
+        type: object
+
+        properties:
+            NroLinDet:
+                type: integer
+
+                format: int32
+
+            NmbItem:
+                type: string
+
+            QtyItem:
+                type: integer
+
+                format: int32
+
+            PrcItem:
+                type: integer
+
+                format: int32
+
+            MontoItem:
+                type: integer
+
+                format: int32
+
+        required:
+            - NroLinDet
+
+            - NmbItem
+
+            - QtyItem
+
+            - PrcItem
+
+            - MontoItem
+
+    EnviarBoleta:
+        title: EnviarBoleta
+
+        example:
+            success: true
+
+            data:
+                track_id: 10128191
+
+                xml: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iSVNPLTg4NTktMSI/Pgo8RW52aW9CT0xFVEEgeG1sbnM9Imh0dHA6Ly93d3cuc2lpLmNsL1NpaUR0ZSIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LnNpaS5jbC9TaWlEdGUgRW52aW9CT0xFVEFfdjExLnhzZCIgdmVyc2lvbj0iMS4wIj4KICA8U2V0RFRFIElEPSJMaWJyZURURV9TZXREb2MiPgogICAgPENhcmF0dWxhIHZlcnNpb249IjEuMCI+CiAgICAgIDxSdXRFbWlzb3I+NzcxOTcyNzctMjwvUnV0RW1pc29yPgogICAgICA8UnV0RW52aWE+MTg5NzM3OTctMTwvUnV0RW52aWE+CiAgICAgIDxSdXRSZWNlcHRvcj42MDgwMzAwMC1LPC9SdXRSZWNlcHRvcj4KICAgICAgPEZjaFJlc29sPjIwMjEtMDEtMDc8L0ZjaFJlc29sPgogICAgICA8TnJvUmVzb2w+MDwvTnJvUmVzb2w+CiAgICAgIDxUbXN0RmlybWFFbnY+MjAyMS0wNS0zMFQxODoxMzo0MDwvVG1zdEZpcm1hRW52PgogICAgICA8U3ViVG90RFRFPgogICAgICAgIDxUcG9EVEU+Mzk8L1Rwb0RURT4KICAgICAgICA8TnJvRFRFPjE8L05yb0RURT4KICAgICAgPC9TdWJUb3REVEU+CiAgICA8L0NhcmF0dWxhPgogICAgPERURSB2ZXJzaW9uPSIxLjAiPgogIDxEb2N1bWVudG8gSUQ9IkxpYnJlRFRFX1QzOUY3MDYiPgogICAgPEVuY2FiZXphZG8+CiAgICAgIDxJZERvYz4KICAgICAgICA8VGlwb0RURT4zOTwvVGlwb0RURT4KICAgICAgICA8Rm9saW8+NzA2PC9Gb2xpbz4KICAgICAgICA8RmNoRW1pcz4zMC0wNS0yMDIxPC9GY2hFbWlzPgogICAgICAgIDxJbmRTZXJ2aWNpbz4zPC9JbmRTZXJ2aWNpbz4KICAgICAgPC9JZERvYz4KICAgICAgPEVtaXNvcj4KICAgICAgICA8UlVURW1pc29yPjc3MTk3Mjc3LTI8L1JVVEVtaXNvcj4KICAgICAgICA8UnpuU29jRW1pc29yPlREUzwvUnpuU29jRW1pc29yPgogICAgICAgIDxEaXJPcmlnZW4+cGxhemEgZGUgdmnxYSBkZWwgbWFyPC9EaXJPcmlnZW4+CiAgICAgICAgPENtbmFPcmlnZW4+TG9zIEFuZGVzPC9DbW5hT3JpZ2VuPgogICAgICA8L0VtaXNvcj4KICAgICAgPFJlY2VwdG9yPgogICAgICAgIDxSVVRSZWNlcD42NjY2NjY2Ni02PC9SVVRSZWNlcD4KICAgICAgICA8UnpuU29jUmVjZXA+Uy9OPC9Sem5Tb2NSZWNlcD4KICAgICAgPC9SZWNlcHRvcj4KICAgICAgPFRvdGFsZXM+CiAgICAgICAgPE1udFRvdGFsPjQyMDwvTW50VG90YWw+CiAgICAgIDwvVG90YWxlcz4KICAgIDwvRW5jYWJlemFkbz4KICAgIDxEZXRhbGxlPgogICAgICA8TnJvTGluRGV0PjE8L05yb0xpbkRldD4KICAgICAgPE5tYkl0ZW0+aXRlbTwvTm1iSXRlbT4KICAgICAgPFF0eUl0ZW0+MTwvUXR5SXRlbT4KICAgICAgPFByY0l0ZW0+NDIwPC9QcmNJdGVtPgogICAgICA8TW9udG9JdGVtPjQyMDwvTW9udG9JdGVtPgogICAgPC9EZXRhbGxlPgogICAgPFRFRCB2ZXJzaW9uPSIxLjAiPgogIDxERD4KICAgIDxSRT43NzE5NzI3Ny0yPC9SRT4KICAgIDxURD4zOTwvVEQ+CiAgICA8Rj43MDY8L0Y+CiAgICA8RkU+MzAtMDUtMjAyMTwvRkU+CiAgICA8UlI+NjY2NjY2NjYtNjwvUlI+CiAgICA8UlNSPlMvTjwvUlNSPgogICAgPE1OVD40MjA8L01OVD4KICAgIDxJVDE+aXRlbTwvSVQxPgogICAgPENBRiB2ZXJzaW9uPSIxLjAiPgo8REE+CjxSRT43NzE5NzI3Ny0yPC9SRT4KPFJTPlRPRE8gU09GVCBTUEE8L1JTPgo8VEQ+Mzk8L1REPgo8Uk5HPjxEPjcwNjwvRD48SD44MDU8L0g+PC9STkc+CjxGQT4yMDIxLTAxLTEwPC9GQT4KPFJTQVBLPjxNPjZqbmtpaWdXMmpBeUlMZE1yUGdvbnR5WmRsYjh4WG82azZwenU1UnBJQVFJR2lOcDdLd2x1ZWx6QThXVVI3OG9TaU0xYXBURjd6cnZ0Rmxkb2hNSHN3PT08L00+PEU+QXc9PTwvRT48L1JTQVBLPgo8SURLPjEwMDwvSURLPgo8L0RBPgo8RlJNQSBhbGdvcml0bW89IlNIQTF3aXRoUlNBIj5NSm5FY2c0Wk1Yc0kycmN4UzQvR0ZvdzhKNGlCOXZzdFBpMG1hNTJGRlh1R2ZsS1Z1dzVscjJ2Yko4YldkSkE5d29QU3pOMkhYZExnOTB2dm84bjJUUT09PC9GUk1BPgo8L0NBRj4KICAgIDxUU1RFRD4yMDIxLTA1LTMwVDE4OjEzOjQwPC9UU1RFRD4KICA8L0REPgogIDxGUk1UIGFsZ29yaXRtbz0iU0hBMXdpdGhSU0EiPlk5NDBFdTAzaTR3ZENzQytIblp4MnVLaUsxekkwd2dFSldkRWdhMVFkMkRmYStZWTFWbG16RkxWVm9ncHMydGQ5R0F6Z3ZReDkrMVdKUjJUa25XTHZnPT08L0ZSTVQ+CjwvVEVEPgogIDxUbXN0RmlybWE+MjAyMS0wNS0zMFQxODoxMzo0MDwvVG1zdEZpcm1hPjwvRG9jdW1lbnRvPgo8U2lnbmF0dXJlIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjIj48U2lnbmVkSW5mbyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+PENhbm9uaWNhbGl6YXRpb25NZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy14bWwtYzE0bi0yMDAxMDMxNSIvPjxTaWduYXR1cmVNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjcnNhLXNoYTEiLz48UmVmZXJlbmNlIFVSST0iI0xpYnJlRFRFX1QzOUY3MDYiPjxUcmFuc2Zvcm1zPjxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjZW52ZWxvcGVkLXNpZ25hdHVyZSIvPjwvVHJhbnNmb3Jtcz48RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiLz48RGlnZXN0VmFsdWU+bGl0Mm1YQ1lrODYzQmJRb1V5YUp4RXY2QzRZPTwvRGlnZXN0VmFsdWU+PC9SZWZlcmVuY2U+PC9TaWduZWRJbmZvPjxTaWduYXR1cmVWYWx1ZT5uTHg4OGhTNzhRcXY0K2piam4zZ3NudFVXL1dCbDZmREtVbUUwd3poTmFINjRMTE9la3R3c3ZZSGh6OGNFWjlkCllBOXhyZlNBUnhmejNvNHdvS3p6UUp5QXh6Z0EySUpQbFI2cno0bENTaXhiTnBZVS9qZnlLMzBDZ2hmSTZJbXEKRFdlUEZTTHFFUXlvOXUyc2FYRUlVUmZ2SVlJd2VaM24yUGxqMEp2bUhUVzM3dVhYM0ZYLzd5VzJZcnE3dGxkegozTlFhb0hyWDFDZTMvTlBnemcyQXRMQjZNQXhrRE4zWmlGUDh6QjFZTFpORklSckZ4a0ZEb3hvamE5ZzNRQVg2CnQ0eDJNazFoclJGV3VyejZVb2JiakN1aDZHcUtDd0NSWFN1UHhiYStaR2tZeEk5QTJRandFaTNjZjJoZXFOVTYKR3loZy9XVUo5S0h0eFhnT2FNWHZuUT09PC9TaWduYXR1cmVWYWx1ZT48S2V5SW5mbz48S2V5VmFsdWU+PFJTQUtleVZhbHVlPjxNb2R1bHVzPnI3bUJMMm44K3pMZEwwV25LYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkwKS1VNZ0hBMndVejhvTjNyYzNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUgpzZ2NDNnNXSDNwdmtlZWRlaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1CmlvMFlYbXpaT0o5dlE3Mm5nQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlMKbStZL1UxMHJ3SnRncm5sNkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VwoxcHBDSjdMelQrWTA4Uy80WHRaWktRPT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+PC9LZXlWYWx1ZT48WDUwOURhdGE+PFg1MDlDZXJ0aWZpY2F0ZT5NSUlHQ1RDQ0JQR2dBd0lCQWdJSU5uRkFORFIxMVhFd0RRWUpLb1pJaHZjTkFRRUxCUUF3Z2JjeEhqQWNCZ2txCmhraUc5dzBCQ1FFV0QzTnZjRzl5ZEdWQWFXUnZheTVqYkRFZk1CMEdBMVVFQXd3V1NVUlBTeUJHU1ZKTlFTQkYKVEVWRFZGSlBUa2xEUVRFWE1CVUdBMVVFQ3d3T1VsVlVMVGMyTmpFd056RTRMVFF4SURBZUJnTlZCQXNNRjBGMQpkRzl5YVdSaFpDQkRaWEowYVdacFkyRmtiM0poTVJrd0Z3WURWUVFLREJCQ1VFOGdRV1IyYVhOdmNuTWdVM0JCCk1SRXdEd1lEVlFRSERBaFRZVzUwYVdGbmJ6RUxNQWtHQTFVRUJoTUNRMHd3SGhjTk1qQXdPREEyTVRReE5EQXkKV2hjTk1qSXdPREEyTVRReE5EQXlXakNCZ0RFbE1DTUdBMVVFQXd3Y1RVRlNRMDlUSUVGTVJWaEpVeUJRVlV4SApRVklnUVVORlZrVkVUekVvTUNZR0NTcUdTSWIzRFFFSkFSWVpiV0Z5WTI5ekxuQjFiR2RoY2k1aFFHZHRZV2xzCkxtTnZiVEVUTUJFR0ExVUVCUk1LTVRnNU56TTNPVGN0TVRFTE1Ba0dBMVVFQmhNQ1Ewd3hDekFKQmdOVkJBY00KQWxKTk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBcjdtQkwybjgrekxkTDBXbgpLYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkxLVU1nSEEyd1V6OG9OM3JjCjNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUnNnY0M2c1dIM3B2a2VlZGUKaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1aW8wWVhtelpPSjl2UTcybgpnQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlNtK1kvVTEwcndKdGdybmw2CkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VzFwcENKN0x6VCtZMDhTLzQKWHRaWktRSURBUUFCbzRJQ1REQ0NBa2d3Q1FZRFZSMFRCQUl3QURBZkJnTlZIU01FR0RBV2dCVHdiRE8vckplVApXSHFoNE02ZTdPamUrMlUrK2pDQm1BWURWUjBnQklHUU1JR05NSUdLQmdvckJnRUVBWU9NSGdFRU1Id3dMQVlJCkt3WUJCUVVIQWdFV0lHaDBkSEJ6T2k4dmNITmpMbWxrYjJzdVkyd3ZiM0JsYmk5amNITXVjR1JtTUV3R0NDc0cKQVFVRkJ3SUNNRUFlUGdCREFHVUFjZ0IwQUdrQVpnQnBBR01BWVFCa0FHOEFJQUJ3QUdFQWNnQmhBQ0FBZFFCegpBRzhBSUFCVUFISUFhUUJpQUhVQWRBQmhBSElBYVFCdk1JSUJCd1lEVlIwZkJJSC9NSUg4TUlINW9EZWdOWVl6CmFIUjBjSE02THk5d2MyTXVhV1J2YXk1amJDOXZjR1Z1TDBsRVQwc2dSa2xTVFVFZ1JVeEZRMVJTVDA1SlEwRXUKWTNKc29vRzlwSUc2TUlHM01SNHdIQVlKS29aSWh2Y05BUWtCRmc5emIzQnZjblJsUUdsa2Iyc3VZMnd4SHpBZApCZ05WQkFNTUZrbEVUMHNnUmtsU1RVRWdSVXhGUTFSU1QwNUpRMEV4RnpBVkJnTlZCQXNNRGxKVlZDMDNOall4Ck1EY3hPQzAwTVNBd0hnWURWUVFMREJkQmRYUnZjbWxrWVdRZ1EyVnlkR2xtYVdOaFpHOXlZVEVaTUJjR0ExVUUKQ2d3UVFsQlBJRUZrZG1semIzSnpJRk53UVRFUk1BOEdBMVVFQnd3SVUyRnVkR2xoWjI4eEN6QUpCZ05WQkFZVApBa05NTUIwR0ExVWREZ1FXQkJSeVQvV2d5ZEp0aDFsOG9wSVVxQ1c4Z3ExMnV6QUxCZ05WSFE4RUJBTUNCSkF3Ckl3WURWUjBTQkJ3d0dxQVlCZ2dyQmdFRUFjRUJBcUFNRmdvM05qWXhNRGN4T0MwME1DTUdBMVVkRVFRY01CcWcKR0FZSUt3WUJCQUhCQVFHZ0RCWUtNVGc1TnpNM09UY3RNVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBSVBwbwpoaE9LK1BmZ0lSY3ZHREV2c0dJT1JCMFl2WWlBVmlZWDE2dkxzQTZYSUh3NHlvZVRUZ01Ld0RVWisyWWMxLzlPCmYzbjBQTW9TNWhGNzNDNEdqaXN2bDVuNkxZc0FOMUxIL0FsU29Ta0pCMXUrbHpZWDMza3F4dVd3ZkFTdHhGSEwKN25kano5TGYxNkV6Q21PWDdOOGs1MGZFQVdaRW9mNmtkZkEvK05GQURmV0N0aVFTeFA5SEdUNGdJMHlhQlNpOQpURlZENGhlckxEa3FBV291NTZJcHpVR0ljNnVxdGtHcncvMys1ZFlhcEsrTklnY3dxdE43TDVzMWg5MVBSaUZJCjF1UVc4SUdnckVPMm51ZVRVZzJoSldNV051NjlWbEVlSDY0TXZNSUlubkVSYmtVR05qMXpwcW1ONGtmb2VhZkcKVnYvT2NpcXRtMXZTc1duVkFnPT08L1g1MDlDZXJ0aWZpY2F0ZT48L1g1MDlEYXRhPjwvS2V5SW5mbz48L1NpZ25hdHVyZT48L0RURT4KICA8L1NldERURT4KPFNpZ25hdHVyZSB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+PFNpZ25lZEluZm8geG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tMjAwMTAzMTUiLz48U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3JzYS1zaGExIi8+PFJlZmVyZW5jZSBVUkk9IiNMaWJyZURURV9TZXREb2MiPjxUcmFuc2Zvcm1zPjxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjZW52ZWxvcGVkLXNpZ25hdHVyZSIvPjwvVHJhbnNmb3Jtcz48RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiLz48RGlnZXN0VmFsdWU+M2d0SWNXWVhqZWlYejFHeU5tT2NFL3lPMStFPTwvRGlnZXN0VmFsdWU+PC9SZWZlcmVuY2U+PC9TaWduZWRJbmZvPjxTaWduYXR1cmVWYWx1ZT5VWXBxcTRocnE1bFZHT3ZkUlVtNngxeHpyTzVaeGI5UkxjWWpCSThBcXhrclVDMDFFSldmNWFpOUZWMGkrWDNSCm5uSkpybVZCYzdqdDQzRXpZenZxMVllOTlpRjU4OXZHRzE3V2hoQUluUEQxOUtQYmVTZnFES0F1a0F3cjRBdWIKZjNnV1BTcVUzMjMvd1lneExtSU9CVlBrU3RFaFc1bXBCdUxHTmwrakpMNmdkTWdIUDlSMjB2YWZvOEdJaXFuTAozMm1oc3hmNFpURzU0RitQUiszR0p4YzR2cVNJbDE1eUd5M3haY29FbjRiSDQwWkFheGRmSlU3VDgyc01vZDZhCkVRZ1VnL2s5MGZaTWg2VHpqYzZUUE9KZHR4b1ZzL2FWOUZkTmVWdFJ0RTBEdzBjQmZORUpkdWtwQklRZm9UbnEKTk5LNHVnLzVLeGQvYXpyOW4xYy9lQT09PC9TaWduYXR1cmVWYWx1ZT48S2V5SW5mbz48S2V5VmFsdWU+PFJTQUtleVZhbHVlPjxNb2R1bHVzPnI3bUJMMm44K3pMZEwwV25LYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkwKS1VNZ0hBMndVejhvTjNyYzNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUgpzZ2NDNnNXSDNwdmtlZWRlaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1CmlvMFlYbXpaT0o5dlE3Mm5nQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlMKbStZL1UxMHJ3SnRncm5sNkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VwoxcHBDSjdMelQrWTA4Uy80WHRaWktRPT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+PC9LZXlWYWx1ZT48WDUwOURhdGE+PFg1MDlDZXJ0aWZpY2F0ZT5NSUlHQ1RDQ0JQR2dBd0lCQWdJSU5uRkFORFIxMVhFd0RRWUpLb1pJaHZjTkFRRUxCUUF3Z2JjeEhqQWNCZ2txCmhraUc5dzBCQ1FFV0QzTnZjRzl5ZEdWQWFXUnZheTVqYkRFZk1CMEdBMVVFQXd3V1NVUlBTeUJHU1ZKTlFTQkYKVEVWRFZGSlBUa2xEUVRFWE1CVUdBMVVFQ3d3T1VsVlVMVGMyTmpFd056RTRMVFF4SURBZUJnTlZCQXNNRjBGMQpkRzl5YVdSaFpDQkRaWEowYVdacFkyRmtiM0poTVJrd0Z3WURWUVFLREJCQ1VFOGdRV1IyYVhOdmNuTWdVM0JCCk1SRXdEd1lEVlFRSERBaFRZVzUwYVdGbmJ6RUxNQWtHQTFVRUJoTUNRMHd3SGhjTk1qQXdPREEyTVRReE5EQXkKV2hjTk1qSXdPREEyTVRReE5EQXlXakNCZ0RFbE1DTUdBMVVFQXd3Y1RVRlNRMDlUSUVGTVJWaEpVeUJRVlV4SApRVklnUVVORlZrVkVUekVvTUNZR0NTcUdTSWIzRFFFSkFSWVpiV0Z5WTI5ekxuQjFiR2RoY2k1aFFHZHRZV2xzCkxtTnZiVEVUTUJFR0ExVUVCUk1LTVRnNU56TTNPVGN0TVRFTE1Ba0dBMVVFQmhNQ1Ewd3hDekFKQmdOVkJBY00KQWxKTk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBcjdtQkwybjgrekxkTDBXbgpLYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkxLVU1nSEEyd1V6OG9OM3JjCjNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUnNnY0M2c1dIM3B2a2VlZGUKaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1aW8wWVhtelpPSjl2UTcybgpnQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlNtK1kvVTEwcndKdGdybmw2CkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VzFwcENKN0x6VCtZMDhTLzQKWHRaWktRSURBUUFCbzRJQ1REQ0NBa2d3Q1FZRFZSMFRCQUl3QURBZkJnTlZIU01FR0RBV2dCVHdiRE8vckplVApXSHFoNE02ZTdPamUrMlUrK2pDQm1BWURWUjBnQklHUU1JR05NSUdLQmdvckJnRUVBWU9NSGdFRU1Id3dMQVlJCkt3WUJCUVVIQWdFV0lHaDBkSEJ6T2k4dmNITmpMbWxrYjJzdVkyd3ZiM0JsYmk5amNITXVjR1JtTUV3R0NDc0cKQVFVRkJ3SUNNRUFlUGdCREFHVUFjZ0IwQUdrQVpnQnBBR01BWVFCa0FHOEFJQUJ3QUdFQWNnQmhBQ0FBZFFCegpBRzhBSUFCVUFISUFhUUJpQUhVQWRBQmhBSElBYVFCdk1JSUJCd1lEVlIwZkJJSC9NSUg4TUlINW9EZWdOWVl6CmFIUjBjSE02THk5d2MyTXVhV1J2YXk1amJDOXZjR1Z1TDBsRVQwc2dSa2xTVFVFZ1JVeEZRMVJTVDA1SlEwRXUKWTNKc29vRzlwSUc2TUlHM01SNHdIQVlKS29aSWh2Y05BUWtCRmc5emIzQnZjblJsUUdsa2Iyc3VZMnd4SHpBZApCZ05WQkFNTUZrbEVUMHNnUmtsU1RVRWdSVXhGUTFSU1QwNUpRMEV4RnpBVkJnTlZCQXNNRGxKVlZDMDNOall4Ck1EY3hPQzAwTVNBd0hnWURWUVFMREJkQmRYUnZjbWxrWVdRZ1EyVnlkR2xtYVdOaFpHOXlZVEVaTUJjR0ExVUUKQ2d3UVFsQlBJRUZrZG1semIzSnpJRk53UVRFUk1BOEdBMVVFQnd3SVUyRnVkR2xoWjI4eEN6QUpCZ05WQkFZVApBa05NTUIwR0ExVWREZ1FXQkJSeVQvV2d5ZEp0aDFsOG9wSVVxQ1c4Z3ExMnV6QUxCZ05WSFE4RUJBTUNCSkF3Ckl3WURWUjBTQkJ3d0dxQVlCZ2dyQmdFRUFjRUJBcUFNRmdvM05qWXhNRGN4T0MwME1DTUdBMVVkRVFRY01CcWcKR0FZSUt3WUJCQUhCQVFHZ0RCWUtNVGc1TnpNM09UY3RNVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBSVBwbwpoaE9LK1BmZ0lSY3ZHREV2c0dJT1JCMFl2WWlBVmlZWDE2dkxzQTZYSUh3NHlvZVRUZ01Ld0RVWisyWWMxLzlPCmYzbjBQTW9TNWhGNzNDNEdqaXN2bDVuNkxZc0FOMUxIL0FsU29Ta0pCMXUrbHpZWDMza3F4dVd3ZkFTdHhGSEwKN25kano5TGYxNkV6Q21PWDdOOGs1MGZFQVdaRW9mNmtkZkEvK05GQURmV0N0aVFTeFA5SEdUNGdJMHlhQlNpOQpURlZENGhlckxEa3FBV291NTZJcHpVR0ljNnVxdGtHcncvMys1ZFlhcEsrTklnY3dxdE43TDVzMWg5MVBSaUZJCjF1UVc4SUdnckVPMm51ZVRVZzJoSldNV051NjlWbEVlSDY0TXZNSUlubkVSYmtVR05qMXpwcW1ONGtmb2VhZkcKVnYvT2NpcXRtMXZTc1duVkFnPT08L1g1MDlDZXJ0aWZpY2F0ZT48L1g1MDlEYXRhPjwvS2V5SW5mbz48L1NpZ25hdHVyZT48L0VudmlvQk9MRVRBPgo=
+
+        type: object
+
+        properties:
+            success:
+                type: boolean
+
+            data:
+                $ref: "#/definitions/Data1"
+
+        required:
+            - success
+
+            - data
+
+    Data1:
+        title: Data1
+
+        example:
+            track_id: 10128191
+
+            xml: PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iSVNPLTg4NTktMSI/Pgo8RW52aW9CT0xFVEEgeG1sbnM9Imh0dHA6Ly93d3cuc2lpLmNsL1NpaUR0ZSIgeG1sbnM6eHNpPSJodHRwOi8vd3d3LnczLm9yZy8yMDAxL1hNTFNjaGVtYS1pbnN0YW5jZSIgeHNpOnNjaGVtYUxvY2F0aW9uPSJodHRwOi8vd3d3LnNpaS5jbC9TaWlEdGUgRW52aW9CT0xFVEFfdjExLnhzZCIgdmVyc2lvbj0iMS4wIj4KICA8U2V0RFRFIElEPSJMaWJyZURURV9TZXREb2MiPgogICAgPENhcmF0dWxhIHZlcnNpb249IjEuMCI+CiAgICAgIDxSdXRFbWlzb3I+NzcxOTcyNzctMjwvUnV0RW1pc29yPgogICAgICA8UnV0RW52aWE+MTg5NzM3OTctMTwvUnV0RW52aWE+CiAgICAgIDxSdXRSZWNlcHRvcj42MDgwMzAwMC1LPC9SdXRSZWNlcHRvcj4KICAgICAgPEZjaFJlc29sPjIwMjEtMDEtMDc8L0ZjaFJlc29sPgogICAgICA8TnJvUmVzb2w+MDwvTnJvUmVzb2w+CiAgICAgIDxUbXN0RmlybWFFbnY+MjAyMS0wNS0zMFQxODoxMzo0MDwvVG1zdEZpcm1hRW52PgogICAgICA8U3ViVG90RFRFPgogICAgICAgIDxUcG9EVEU+Mzk8L1Rwb0RURT4KICAgICAgICA8TnJvRFRFPjE8L05yb0RURT4KICAgICAgPC9TdWJUb3REVEU+CiAgICA8L0NhcmF0dWxhPgogICAgPERURSB2ZXJzaW9uPSIxLjAiPgogIDxEb2N1bWVudG8gSUQ9IkxpYnJlRFRFX1QzOUY3MDYiPgogICAgPEVuY2FiZXphZG8+CiAgICAgIDxJZERvYz4KICAgICAgICA8VGlwb0RURT4zOTwvVGlwb0RURT4KICAgICAgICA8Rm9saW8+NzA2PC9Gb2xpbz4KICAgICAgICA8RmNoRW1pcz4zMC0wNS0yMDIxPC9GY2hFbWlzPgogICAgICAgIDxJbmRTZXJ2aWNpbz4zPC9JbmRTZXJ2aWNpbz4KICAgICAgPC9JZERvYz4KICAgICAgPEVtaXNvcj4KICAgICAgICA8UlVURW1pc29yPjc3MTk3Mjc3LTI8L1JVVEVtaXNvcj4KICAgICAgICA8UnpuU29jRW1pc29yPlREUzwvUnpuU29jRW1pc29yPgogICAgICAgIDxEaXJPcmlnZW4+cGxhemEgZGUgdmnxYSBkZWwgbWFyPC9EaXJPcmlnZW4+CiAgICAgICAgPENtbmFPcmlnZW4+TG9zIEFuZGVzPC9DbW5hT3JpZ2VuPgogICAgICA8L0VtaXNvcj4KICAgICAgPFJlY2VwdG9yPgogICAgICAgIDxSVVRSZWNlcD42NjY2NjY2Ni02PC9SVVRSZWNlcD4KICAgICAgICA8UnpuU29jUmVjZXA+Uy9OPC9Sem5Tb2NSZWNlcD4KICAgICAgPC9SZWNlcHRvcj4KICAgICAgPFRvdGFsZXM+CiAgICAgICAgPE1udFRvdGFsPjQyMDwvTW50VG90YWw+CiAgICAgIDwvVG90YWxlcz4KICAgIDwvRW5jYWJlemFkbz4KICAgIDxEZXRhbGxlPgogICAgICA8TnJvTGluRGV0PjE8L05yb0xpbkRldD4KICAgICAgPE5tYkl0ZW0+aXRlbTwvTm1iSXRlbT4KICAgICAgPFF0eUl0ZW0+MTwvUXR5SXRlbT4KICAgICAgPFByY0l0ZW0+NDIwPC9QcmNJdGVtPgogICAgICA8TW9udG9JdGVtPjQyMDwvTW9udG9JdGVtPgogICAgPC9EZXRhbGxlPgogICAgPFRFRCB2ZXJzaW9uPSIxLjAiPgogIDxERD4KICAgIDxSRT43NzE5NzI3Ny0yPC9SRT4KICAgIDxURD4zOTwvVEQ+CiAgICA8Rj43MDY8L0Y+CiAgICA8RkU+MzAtMDUtMjAyMTwvRkU+CiAgICA8UlI+NjY2NjY2NjYtNjwvUlI+CiAgICA8UlNSPlMvTjwvUlNSPgogICAgPE1OVD40MjA8L01OVD4KICAgIDxJVDE+aXRlbTwvSVQxPgogICAgPENBRiB2ZXJzaW9uPSIxLjAiPgo8REE+CjxSRT43NzE5NzI3Ny0yPC9SRT4KPFJTPlRPRE8gU09GVCBTUEE8L1JTPgo8VEQ+Mzk8L1REPgo8Uk5HPjxEPjcwNjwvRD48SD44MDU8L0g+PC9STkc+CjxGQT4yMDIxLTAxLTEwPC9GQT4KPFJTQVBLPjxNPjZqbmtpaWdXMmpBeUlMZE1yUGdvbnR5WmRsYjh4WG82azZwenU1UnBJQVFJR2lOcDdLd2x1ZWx6QThXVVI3OG9TaU0xYXBURjd6cnZ0Rmxkb2hNSHN3PT08L00+PEU+QXc9PTwvRT48L1JTQVBLPgo8SURLPjEwMDwvSURLPgo8L0RBPgo8RlJNQSBhbGdvcml0bW89IlNIQTF3aXRoUlNBIj5NSm5FY2c0Wk1Yc0kycmN4UzQvR0ZvdzhKNGlCOXZzdFBpMG1hNTJGRlh1R2ZsS1Z1dzVscjJ2Yko4YldkSkE5d29QU3pOMkhYZExnOTB2dm84bjJUUT09PC9GUk1BPgo8L0NBRj4KICAgIDxUU1RFRD4yMDIxLTA1LTMwVDE4OjEzOjQwPC9UU1RFRD4KICA8L0REPgogIDxGUk1UIGFsZ29yaXRtbz0iU0hBMXdpdGhSU0EiPlk5NDBFdTAzaTR3ZENzQytIblp4MnVLaUsxekkwd2dFSldkRWdhMVFkMkRmYStZWTFWbG16RkxWVm9ncHMydGQ5R0F6Z3ZReDkrMVdKUjJUa25XTHZnPT08L0ZSTVQ+CjwvVEVEPgogIDxUbXN0RmlybWE+MjAyMS0wNS0zMFQxODoxMzo0MDwvVG1zdEZpcm1hPjwvRG9jdW1lbnRvPgo8U2lnbmF0dXJlIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjIj48U2lnbmVkSW5mbyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+PENhbm9uaWNhbGl6YXRpb25NZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy9UUi8yMDAxL1JFQy14bWwtYzE0bi0yMDAxMDMxNSIvPjxTaWduYXR1cmVNZXRob2QgQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjcnNhLXNoYTEiLz48UmVmZXJlbmNlIFVSST0iI0xpYnJlRFRFX1QzOUY3MDYiPjxUcmFuc2Zvcm1zPjxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjZW52ZWxvcGVkLXNpZ25hdHVyZSIvPjwvVHJhbnNmb3Jtcz48RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiLz48RGlnZXN0VmFsdWU+bGl0Mm1YQ1lrODYzQmJRb1V5YUp4RXY2QzRZPTwvRGlnZXN0VmFsdWU+PC9SZWZlcmVuY2U+PC9TaWduZWRJbmZvPjxTaWduYXR1cmVWYWx1ZT5uTHg4OGhTNzhRcXY0K2piam4zZ3NudFVXL1dCbDZmREtVbUUwd3poTmFINjRMTE9la3R3c3ZZSGh6OGNFWjlkCllBOXhyZlNBUnhmejNvNHdvS3p6UUp5QXh6Z0EySUpQbFI2cno0bENTaXhiTnBZVS9qZnlLMzBDZ2hmSTZJbXEKRFdlUEZTTHFFUXlvOXUyc2FYRUlVUmZ2SVlJd2VaM24yUGxqMEp2bUhUVzM3dVhYM0ZYLzd5VzJZcnE3dGxkegozTlFhb0hyWDFDZTMvTlBnemcyQXRMQjZNQXhrRE4zWmlGUDh6QjFZTFpORklSckZ4a0ZEb3hvamE5ZzNRQVg2CnQ0eDJNazFoclJGV3VyejZVb2JiakN1aDZHcUtDd0NSWFN1UHhiYStaR2tZeEk5QTJRandFaTNjZjJoZXFOVTYKR3loZy9XVUo5S0h0eFhnT2FNWHZuUT09PC9TaWduYXR1cmVWYWx1ZT48S2V5SW5mbz48S2V5VmFsdWU+PFJTQUtleVZhbHVlPjxNb2R1bHVzPnI3bUJMMm44K3pMZEwwV25LYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkwKS1VNZ0hBMndVejhvTjNyYzNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUgpzZ2NDNnNXSDNwdmtlZWRlaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1CmlvMFlYbXpaT0o5dlE3Mm5nQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlMKbStZL1UxMHJ3SnRncm5sNkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VwoxcHBDSjdMelQrWTA4Uy80WHRaWktRPT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+PC9LZXlWYWx1ZT48WDUwOURhdGE+PFg1MDlDZXJ0aWZpY2F0ZT5NSUlHQ1RDQ0JQR2dBd0lCQWdJSU5uRkFORFIxMVhFd0RRWUpLb1pJaHZjTkFRRUxCUUF3Z2JjeEhqQWNCZ2txCmhraUc5dzBCQ1FFV0QzTnZjRzl5ZEdWQWFXUnZheTVqYkRFZk1CMEdBMVVFQXd3V1NVUlBTeUJHU1ZKTlFTQkYKVEVWRFZGSlBUa2xEUVRFWE1CVUdBMVVFQ3d3T1VsVlVMVGMyTmpFd056RTRMVFF4SURBZUJnTlZCQXNNRjBGMQpkRzl5YVdSaFpDQkRaWEowYVdacFkyRmtiM0poTVJrd0Z3WURWUVFLREJCQ1VFOGdRV1IyYVhOdmNuTWdVM0JCCk1SRXdEd1lEVlFRSERBaFRZVzUwYVdGbmJ6RUxNQWtHQTFVRUJoTUNRMHd3SGhjTk1qQXdPREEyTVRReE5EQXkKV2hjTk1qSXdPREEyTVRReE5EQXlXakNCZ0RFbE1DTUdBMVVFQXd3Y1RVRlNRMDlUSUVGTVJWaEpVeUJRVlV4SApRVklnUVVORlZrVkVUekVvTUNZR0NTcUdTSWIzRFFFSkFSWVpiV0Z5WTI5ekxuQjFiR2RoY2k1aFFHZHRZV2xzCkxtTnZiVEVUTUJFR0ExVUVCUk1LTVRnNU56TTNPVGN0TVRFTE1Ba0dBMVVFQmhNQ1Ewd3hDekFKQmdOVkJBY00KQWxKTk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBcjdtQkwybjgrekxkTDBXbgpLYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkxLVU1nSEEyd1V6OG9OM3JjCjNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUnNnY0M2c1dIM3B2a2VlZGUKaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1aW8wWVhtelpPSjl2UTcybgpnQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlNtK1kvVTEwcndKdGdybmw2CkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VzFwcENKN0x6VCtZMDhTLzQKWHRaWktRSURBUUFCbzRJQ1REQ0NBa2d3Q1FZRFZSMFRCQUl3QURBZkJnTlZIU01FR0RBV2dCVHdiRE8vckplVApXSHFoNE02ZTdPamUrMlUrK2pDQm1BWURWUjBnQklHUU1JR05NSUdLQmdvckJnRUVBWU9NSGdFRU1Id3dMQVlJCkt3WUJCUVVIQWdFV0lHaDBkSEJ6T2k4dmNITmpMbWxrYjJzdVkyd3ZiM0JsYmk5amNITXVjR1JtTUV3R0NDc0cKQVFVRkJ3SUNNRUFlUGdCREFHVUFjZ0IwQUdrQVpnQnBBR01BWVFCa0FHOEFJQUJ3QUdFQWNnQmhBQ0FBZFFCegpBRzhBSUFCVUFISUFhUUJpQUhVQWRBQmhBSElBYVFCdk1JSUJCd1lEVlIwZkJJSC9NSUg4TUlINW9EZWdOWVl6CmFIUjBjSE02THk5d2MyTXVhV1J2YXk1amJDOXZjR1Z1TDBsRVQwc2dSa2xTVFVFZ1JVeEZRMVJTVDA1SlEwRXUKWTNKc29vRzlwSUc2TUlHM01SNHdIQVlKS29aSWh2Y05BUWtCRmc5emIzQnZjblJsUUdsa2Iyc3VZMnd4SHpBZApCZ05WQkFNTUZrbEVUMHNnUmtsU1RVRWdSVXhGUTFSU1QwNUpRMEV4RnpBVkJnTlZCQXNNRGxKVlZDMDNOall4Ck1EY3hPQzAwTVNBd0hnWURWUVFMREJkQmRYUnZjbWxrWVdRZ1EyVnlkR2xtYVdOaFpHOXlZVEVaTUJjR0ExVUUKQ2d3UVFsQlBJRUZrZG1semIzSnpJRk53UVRFUk1BOEdBMVVFQnd3SVUyRnVkR2xoWjI4eEN6QUpCZ05WQkFZVApBa05NTUIwR0ExVWREZ1FXQkJSeVQvV2d5ZEp0aDFsOG9wSVVxQ1c4Z3ExMnV6QUxCZ05WSFE4RUJBTUNCSkF3Ckl3WURWUjBTQkJ3d0dxQVlCZ2dyQmdFRUFjRUJBcUFNRmdvM05qWXhNRGN4T0MwME1DTUdBMVVkRVFRY01CcWcKR0FZSUt3WUJCQUhCQVFHZ0RCWUtNVGc1TnpNM09UY3RNVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBSVBwbwpoaE9LK1BmZ0lSY3ZHREV2c0dJT1JCMFl2WWlBVmlZWDE2dkxzQTZYSUh3NHlvZVRUZ01Ld0RVWisyWWMxLzlPCmYzbjBQTW9TNWhGNzNDNEdqaXN2bDVuNkxZc0FOMUxIL0FsU29Ta0pCMXUrbHpZWDMza3F4dVd3ZkFTdHhGSEwKN25kano5TGYxNkV6Q21PWDdOOGs1MGZFQVdaRW9mNmtkZkEvK05GQURmV0N0aVFTeFA5SEdUNGdJMHlhQlNpOQpURlZENGhlckxEa3FBV291NTZJcHpVR0ljNnVxdGtHcncvMys1ZFlhcEsrTklnY3dxdE43TDVzMWg5MVBSaUZJCjF1UVc4SUdnckVPMm51ZVRVZzJoSldNV051NjlWbEVlSDY0TXZNSUlubkVSYmtVR05qMXpwcW1ONGtmb2VhZkcKVnYvT2NpcXRtMXZTc1duVkFnPT08L1g1MDlDZXJ0aWZpY2F0ZT48L1g1MDlEYXRhPjwvS2V5SW5mbz48L1NpZ25hdHVyZT48L0RURT4KICA8L1NldERURT4KPFNpZ25hdHVyZSB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnIyI+PFNpZ25lZEluZm8geG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvMDkveG1sZHNpZyMiIHhtbG5zOnhzaT0iaHR0cDovL3d3dy53My5vcmcvMjAwMS9YTUxTY2hlbWEtaW5zdGFuY2UiPjxDYW5vbmljYWxpemF0aW9uTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvVFIvMjAwMS9SRUMteG1sLWMxNG4tMjAwMTAzMTUiLz48U2lnbmF0dXJlTWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3JzYS1zaGExIi8+PFJlZmVyZW5jZSBVUkk9IiNMaWJyZURURV9TZXREb2MiPjxUcmFuc2Zvcm1zPjxUcmFuc2Zvcm0gQWxnb3JpdGhtPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwLzA5L3htbGRzaWcjZW52ZWxvcGVkLXNpZ25hdHVyZSIvPjwvVHJhbnNmb3Jtcz48RGlnZXN0TWV0aG9kIEFsZ29yaXRobT0iaHR0cDovL3d3dy53My5vcmcvMjAwMC8wOS94bWxkc2lnI3NoYTEiLz48RGlnZXN0VmFsdWU+M2d0SWNXWVhqZWlYejFHeU5tT2NFL3lPMStFPTwvRGlnZXN0VmFsdWU+PC9SZWZlcmVuY2U+PC9TaWduZWRJbmZvPjxTaWduYXR1cmVWYWx1ZT5VWXBxcTRocnE1bFZHT3ZkUlVtNngxeHpyTzVaeGI5UkxjWWpCSThBcXhrclVDMDFFSldmNWFpOUZWMGkrWDNSCm5uSkpybVZCYzdqdDQzRXpZenZxMVllOTlpRjU4OXZHRzE3V2hoQUluUEQxOUtQYmVTZnFES0F1a0F3cjRBdWIKZjNnV1BTcVUzMjMvd1lneExtSU9CVlBrU3RFaFc1bXBCdUxHTmwrakpMNmdkTWdIUDlSMjB2YWZvOEdJaXFuTAozMm1oc3hmNFpURzU0RitQUiszR0p4YzR2cVNJbDE1eUd5M3haY29FbjRiSDQwWkFheGRmSlU3VDgyc01vZDZhCkVRZ1VnL2s5MGZaTWg2VHpqYzZUUE9KZHR4b1ZzL2FWOUZkTmVWdFJ0RTBEdzBjQmZORUpkdWtwQklRZm9UbnEKTk5LNHVnLzVLeGQvYXpyOW4xYy9lQT09PC9TaWduYXR1cmVWYWx1ZT48S2V5SW5mbz48S2V5VmFsdWU+PFJTQUtleVZhbHVlPjxNb2R1bHVzPnI3bUJMMm44K3pMZEwwV25LYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkwKS1VNZ0hBMndVejhvTjNyYzNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUgpzZ2NDNnNXSDNwdmtlZWRlaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1CmlvMFlYbXpaT0o5dlE3Mm5nQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlMKbStZL1UxMHJ3SnRncm5sNkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VwoxcHBDSjdMelQrWTA4Uy80WHRaWktRPT08L01vZHVsdXM+PEV4cG9uZW50PkFRQUI8L0V4cG9uZW50PjwvUlNBS2V5VmFsdWU+PC9LZXlWYWx1ZT48WDUwOURhdGE+PFg1MDlDZXJ0aWZpY2F0ZT5NSUlHQ1RDQ0JQR2dBd0lCQWdJSU5uRkFORFIxMVhFd0RRWUpLb1pJaHZjTkFRRUxCUUF3Z2JjeEhqQWNCZ2txCmhraUc5dzBCQ1FFV0QzTnZjRzl5ZEdWQWFXUnZheTVqYkRFZk1CMEdBMVVFQXd3V1NVUlBTeUJHU1ZKTlFTQkYKVEVWRFZGSlBUa2xEUVRFWE1CVUdBMVVFQ3d3T1VsVlVMVGMyTmpFd056RTRMVFF4SURBZUJnTlZCQXNNRjBGMQpkRzl5YVdSaFpDQkRaWEowYVdacFkyRmtiM0poTVJrd0Z3WURWUVFLREJCQ1VFOGdRV1IyYVhOdmNuTWdVM0JCCk1SRXdEd1lEVlFRSERBaFRZVzUwYVdGbmJ6RUxNQWtHQTFVRUJoTUNRMHd3SGhjTk1qQXdPREEyTVRReE5EQXkKV2hjTk1qSXdPREEyTVRReE5EQXlXakNCZ0RFbE1DTUdBMVVFQXd3Y1RVRlNRMDlUSUVGTVJWaEpVeUJRVlV4SApRVklnUVVORlZrVkVUekVvTUNZR0NTcUdTSWIzRFFFSkFSWVpiV0Z5WTI5ekxuQjFiR2RoY2k1aFFHZHRZV2xzCkxtTnZiVEVUTUJFR0ExVUVCUk1LTVRnNU56TTNPVGN0TVRFTE1Ba0dBMVVFQmhNQ1Ewd3hDekFKQmdOVkJBY00KQWxKTk1JSUJJakFOQmdrcWhraUc5dzBCQVFFRkFBT0NBUThBTUlJQkNnS0NBUUVBcjdtQkwybjgrekxkTDBXbgpLYVFHeEgreWF5TXZML0JjcGRDWnVzQW96SVJFNVovOWhMeUZPWE9YVnF3WUxYSkxLVU1nSEEyd1V6OG9OM3JjCjNFMTkzQ0xyTnRVV2w5T3BXNHJlRUFTZjdwajF0NCtOUlg3NzE5QUxtYTBLcVhBUnNnY0M2c1dIM3B2a2VlZGUKaHhKeWpYVk5PQzk3RGlxalhWOUVWL0pRUnBEMW9Da2pOSTJpNkZGV0RtdWtjY3Z1aW8wWVhtelpPSjl2UTcybgpnQ1RYT1ZkWWxiblRRSER6RUtPNks5dlVSWXZmRndKTDlFNDVrM3FxUGV0N1dpYlNtK1kvVTEwcndKdGdybmw2CkZKNE9aRTJDL3lmRm1QNkxnd1JNcGovYUFRa1E3Ym13RUNZbHRxdTYzNEdnTEQ2VzFwcENKN0x6VCtZMDhTLzQKWHRaWktRSURBUUFCbzRJQ1REQ0NBa2d3Q1FZRFZSMFRCQUl3QURBZkJnTlZIU01FR0RBV2dCVHdiRE8vckplVApXSHFoNE02ZTdPamUrMlUrK2pDQm1BWURWUjBnQklHUU1JR05NSUdLQmdvckJnRUVBWU9NSGdFRU1Id3dMQVlJCkt3WUJCUVVIQWdFV0lHaDBkSEJ6T2k4dmNITmpMbWxrYjJzdVkyd3ZiM0JsYmk5amNITXVjR1JtTUV3R0NDc0cKQVFVRkJ3SUNNRUFlUGdCREFHVUFjZ0IwQUdrQVpnQnBBR01BWVFCa0FHOEFJQUJ3QUdFQWNnQmhBQ0FBZFFCegpBRzhBSUFCVUFISUFhUUJpQUhVQWRBQmhBSElBYVFCdk1JSUJCd1lEVlIwZkJJSC9NSUg4TUlINW9EZWdOWVl6CmFIUjBjSE02THk5d2MyTXVhV1J2YXk1amJDOXZjR1Z1TDBsRVQwc2dSa2xTVFVFZ1JVeEZRMVJTVDA1SlEwRXUKWTNKc29vRzlwSUc2TUlHM01SNHdIQVlKS29aSWh2Y05BUWtCRmc5emIzQnZjblJsUUdsa2Iyc3VZMnd4SHpBZApCZ05WQkFNTUZrbEVUMHNnUmtsU1RVRWdSVXhGUTFSU1QwNUpRMEV4RnpBVkJnTlZCQXNNRGxKVlZDMDNOall4Ck1EY3hPQzAwTVNBd0hnWURWUVFMREJkQmRYUnZjbWxrWVdRZ1EyVnlkR2xtYVdOaFpHOXlZVEVaTUJjR0ExVUUKQ2d3UVFsQlBJRUZrZG1semIzSnpJRk53UVRFUk1BOEdBMVVFQnd3SVUyRnVkR2xoWjI4eEN6QUpCZ05WQkFZVApBa05NTUIwR0ExVWREZ1FXQkJSeVQvV2d5ZEp0aDFsOG9wSVVxQ1c4Z3ExMnV6QUxCZ05WSFE4RUJBTUNCSkF3Ckl3WURWUjBTQkJ3d0dxQVlCZ2dyQmdFRUFjRUJBcUFNRmdvM05qWXhNRGN4T0MwME1DTUdBMVVkRVFRY01CcWcKR0FZSUt3WUJCQUhCQVFHZ0RCWUtNVGc1TnpNM09UY3RNVEFOQmdrcWhraUc5dzBCQVFzRkFBT0NBUUVBSVBwbwpoaE9LK1BmZ0lSY3ZHREV2c0dJT1JCMFl2WWlBVmlZWDE2dkxzQTZYSUh3NHlvZVRUZ01Ld0RVWisyWWMxLzlPCmYzbjBQTW9TNWhGNzNDNEdqaXN2bDVuNkxZc0FOMUxIL0FsU29Ta0pCMXUrbHpZWDMza3F4dVd3ZkFTdHhGSEwKN25kano5TGYxNkV6Q21PWDdOOGs1MGZFQVdaRW9mNmtkZkEvK05GQURmV0N0aVFTeFA5SEdUNGdJMHlhQlNpOQpURlZENGhlckxEa3FBV291NTZJcHpVR0ljNnVxdGtHcncvMys1ZFlhcEsrTklnY3dxdE43TDVzMWg5MVBSaUZJCjF1UVc4SUdnckVPMm51ZVRVZzJoSldNV051NjlWbEVlSDY0TXZNSUlubkVSYmtVR05qMXpwcW1ONGtmb2VhZkcKVnYvT2NpcXRtMXZTc1duVkFnPT08L1g1MDlDZXJ0aWZpY2F0ZT48L1g1MDlEYXRhPjwvS2V5SW5mbz48L1NpZ25hdHVyZT48L0VudmlvQk9MRVRBPgo=
+
+        type: object
+
+        properties:
+            track_id:
+                type: integer
+
+                format: int32
+
+            xml:
+                type: string
+
+        required:
+            - track_id
+
+            - xml
+
+    GenerarPDF:
+        title: GenerarPDF
+
+        example:
+            success: false
+
+            error: Error en los datos recibidos.
+
+        type: object
+
+        properties:
+            success:
+                type: boolean
+
+            error:
+                type: string
+
+        required:
+            - success
+
+            - error
+
+    EnviarRCOF:
+        title: EnviarRCOF
+
+        example:
+            success: false
+
+            error: "Error de esquema: No hay XML de ConsumoFolio que validarNo hay XML de ConsumoFolio que validarNo fue posible firmar los datosNo fue posible obtener el ID de la firma"
+
+        type: object
+
+        properties:
+            success:
+                type: boolean
+
+            error:
+                type: string
+
+        required:
+            - success
+
+            - error
+
+    ConsultarestadodeBoleta:
+        title: ConsultarestadodeBoleta
+
+        example:
+            success: false
+
+            error: false
+
+        type: object
+
+        properties:
+            success:
+                type: boolean
+
+            error:
+                type: boolean
+
+        required:
+            - success
+
+            - error
+
+security:
+    - token: []
+
+tags:
+    - name: certificacion
+
+    - name: Misc
+
+      description: ""
+
+    - name: Production
+
+      description: ""
